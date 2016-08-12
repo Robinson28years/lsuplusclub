@@ -1,0 +1,3 @@
+C:\Program Files (x86)\C-Free 5\mingw\bin\..\lib\gcc\mingw32\3.4.5\..\..\..\..\mingw32\bin\ld.exe:E:\XAMPP\htdocs\index.php: file format not recognized; treating as linker script
+C:\Program Files (x86)\C-Free 5\mingw\bin\..\lib\gcc\mingw32\3.4.5\..\..\..\..\mingw32\bin\ld.exe:E:\XAMPP\htdocs\index.php:1: syntax error
+collect2: ld returned 1 exit status
