@@ -285,7 +285,7 @@ class ComposerStaticInit0b8921e6b33fb3660b85dfd3ab1a2a14
     );
 
     public static $classMap = array (
-        'AddAdminColumToUsers' => __DIR__ . '/../..' . '/database/migrations/2016_08_05_152700_add_admin_colum_to_users.php',
+        'AddAdminColumToUsers' => __DIR__ . '/../..' . '/database/migrations/2016_08_05_153438_add_admin_colum_to_users.php',
         'AddColumToArticles' => __DIR__ . '/../..' . '/database/migrations/2016_07_29_004130_add_colum_to_articles.php',
         'AddCs4ToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_08_10_211931_add_cs4_to_vipuser.php',
         'AddHideToItem' => __DIR__ . '/../..' . '/database/migrations/2016_08_15_110013_add_hide_to_item.php',
@@ -293,6 +293,7 @@ class ComposerStaticInit0b8921e6b33fb3660b85dfd3ab1a2a14
         'AddIsvipToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_08_12_084639_add_isvip_to_vipuser.php',
         'AddNameToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_08_10_211632_add_name_to_vipuser.php',
         'AddNumToUsers' => __DIR__ . '/../..' . '/database/migrations/2016_08_13_230034_add_num_to_users.php',
+        'AddNums2ToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_08_18_173919_add_nums2_to_vipuser.php',
         'AddNumsToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_08_14_175924_add_nums_to_vipuser.php',
         'AddPublicTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_29_135204_add_public_table.php',
         'AddReviewerToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_08_15_143354_add_reviewer_to_vipuser.php',
