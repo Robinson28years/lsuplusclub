@@ -340,19 +340,19 @@
 		<h4>
 			微信公众号
 		</h4>
-		<img src="{{asset('assets/img/gzh.jpg') }}" alt="" />
+		<img src="{{asset('assets/img/gzh.jpg') }}" width=180px;height=180px; alt="" />
 	</div>
 	<div class="col-md-3">
 		<h4>
 			QQ群
 		</h4>
-		<img src="{{asset('assets/img/qq.jpg') }}" alt="" />
+		<img src="{{asset('assets/img/qq.jpg') }}" width=180px;height=180px; alt="" />
 	</div>
 	<div class="col-md-3">
 		<h4>
 			微博
 		</h4>
-		<img src="{{asset('assets/img/code2.png') }}" alt="" />
+		<img src="{{asset('assets/img/code2.png') }}" width=180px;height=180px; alt="" />
 	</div>
 
 </div>
