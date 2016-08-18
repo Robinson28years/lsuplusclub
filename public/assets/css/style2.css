@@ -1,0 +1,13 @@
+body{
+  margin: 0;
+  padding: 0;
+  background: #272822;
+}
+
+canvas{
+  position: absolute;
+  top: calc(50% - 50px);
+  top: -webkit-calc(50% - 100px);
+  left: calc(50% - 200px);
+  left: -webkit-calc(50% - 200px);
+}
