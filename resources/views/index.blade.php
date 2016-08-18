@@ -255,7 +255,7 @@
 			Plus俱乐部是一个友爱，团结，追求技术的俱乐部。我们期待你的加入。
 		</h5>
 
-		<input class="btn btn-success"  type="submit" onclick="window.location.href='vip/apply'" value="报名成为正式会员">
+		<input class="btn btn-success"  type="submit" onclick="window.location.href='vip/apply'" value="申请成为正式会员">
 	</div>
 
 
@@ -340,13 +340,13 @@
 		<h4>
 			微信公众号
 		</h4>
-		<img src="{{asset('assets/img/code2.png') }}" alt="" />
+		<img src="{{asset('assets/img/gzh.jpg') }}" alt="" />
 	</div>
 	<div class="col-md-3">
 		<h4>
 			QQ群
 		</h4>
-		<img src="{{asset('assets/img/code2.png') }}" alt="" />
+		<img src="{{asset('assets/img/qq.jpg') }}" alt="" />
 	</div>
 	<div class="col-md-3">
 		<h4>
