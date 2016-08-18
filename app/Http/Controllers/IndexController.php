@@ -64,7 +64,7 @@ class IndexController extends Controller
     {
 		$vip=vipuser::where('email', $id)->first();
 		// dd($user);
-		return view('Auth.person',compact('vip'));
+		return view('auth.person',compact('vip'));
     }
 
     /**
