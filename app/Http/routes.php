@@ -43,6 +43,7 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::get('applyall/{id}','ApplyAllController@show');
 	Route::get('newedit/{id}','ItemController@edit');
 	Route::post('newedit/{id}','ItemController@update');
+	Route::get('allsign','AllSignController@index');
 });
 
 Route::group(['middleware' => 'person'], function() {

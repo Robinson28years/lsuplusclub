@@ -34,6 +34,9 @@
 							<li>
 								 <a href="/baoming">报名情况</a>
 							</li>
+							<li>
+								 <a href="/allsign">全部注册人员</a>
+							</li>
 							<li class="dropdown">
 								 <a href="#" class="dropdown-toggle" data-toggle="dropdown">待启用<strong class="caret"></strong></a>
 								<ul class="dropdown-menu">
