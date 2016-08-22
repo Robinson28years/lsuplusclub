@@ -17,7 +17,7 @@ class AllSignController extends Controller
      */
     public function index()
     {
-		$users=User::get();
+		$users=User::latest()->get();
 		// $num=6;
 		return view('admin.allsign',compact('users'));
     }
