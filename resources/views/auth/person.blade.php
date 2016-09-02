@@ -1,5 +1,6 @@
 @extends('app')
 @section('content')
+@include('admin.punav')
 <div class="col-md-6 col-md-offset-3" style="border-bottom: 2px solid #E4E3E5;
 
 ">

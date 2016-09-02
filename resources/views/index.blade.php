@@ -7,7 +7,7 @@
 <div class="container-fluid">
 	@include('admin.punav')
 	<div class="row clearfix" style="
-    margin-top: 50px;
+
 ">
 		<div class="col-md-12 column" style="
 
