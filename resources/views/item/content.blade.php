@@ -1,5 +1,5 @@
 @extends('app')
-@include('admin.nav')
+@include('admin.punav')
 @section('content')
 	<div class="row clearfix" style="
 margin-top: 50px;
