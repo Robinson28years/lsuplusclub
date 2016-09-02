@@ -98,22 +98,21 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								{{Auth::user()->name}}	<strong class="caret"></strong></a>
 								<ul class="dropdown-menu">
-									<li>
-										 <a href="person.php">账户管理</a>
-									</li>
+							<li>
+								 <a href="/person/{{Auth::user()->email}}">会员账户管理</a>
+							</li>
+
+							@if (Auth::user()->admin==1)
 
 
-									@if (Auth::user()->admin==1)
-
-
-									<li> <a href="admin.php">后台管理</a></li>
-										@endif
-									<li class="divider">
-									</li>
-									<li>
-										 <a href="auth/logout">注销</a>
-									</li>
-								</ul>
+							<li> <a href="/vip">后台管理</a></li>
+								@endif
+							<li class="divider">
+							</li>
+							<li>
+								 <a href="auth/logout">注销</a>
+							</li>
+						</ul>
 							</li>
 						}
 							@endunless

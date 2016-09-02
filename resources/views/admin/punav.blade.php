@@ -94,7 +94,7 @@ padding-top: 0px;
 							@if (Auth::user()->admin==1)
 
 
-							<li> <a href="vip">后台管理</a></li>
+							<li> <a href="/vip">后台管理</a></li>
 								@endif
 							<li class="divider">
 							</li>

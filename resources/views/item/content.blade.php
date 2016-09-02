@@ -1,6 +1,6 @@
 @extends('app')
-@include('admin.punav')
 @section('content')
+	@include('admin.punav')
 
 	<div class="col-md-8 col-md-offset-4">
 		{!!$str!!}
