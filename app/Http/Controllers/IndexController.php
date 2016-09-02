@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Item;
 use App\vipuser;
+use App\User;
+use DB;
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +22,29 @@ class IndexController extends Controller
     public function index()
     {
 		$items=Item::latest()->get();
-	   return view('index',compact('items'));
+		if (Auth::user()) {
+			$user=Auth::user()->email;
+			$status = DB::table('vipuser')->where("email", $user)->first();
+			if ($status) {
+
+			}
+			else {
+			$arr =array('isvip'=>'no');
+			$status=json_encode($arr);
+			$status=json_decode($status);
+			}
+		}
+		else {
+
+			$arr =array('isvip'=>'no');
+			$status=json_encode($arr);
+			$status=json_decode($status);
+
+		}
+
+		// dd($user);
+		// dd($status);
+	   return view('index',compact('items','status'));
     }
 
     /**

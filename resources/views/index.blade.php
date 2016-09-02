@@ -255,7 +255,22 @@
 			Plus俱乐部是一个友爱，团结，追求技术的俱乐部。我们期待你的加入。
 		</h5>
 
-		<input class="btn btn-success"  type="submit" onclick="window.location.href='vip/apply'" value="申请成为正式会员">
+		<input class="btn btn-success"  type="submit" onclick="window.location.href='vip/apply'"
+		@if($status->isvip=="no")
+			value="申请成为正式会员"
+		@else
+		@if($status->isvip=="同意")
+			value="已成为正式会员"
+			disabled
+		@elseif($status->isvip=="审核中")
+			value="正在审核中"
+			disabled
+		@endif
+	@endif
+	>
+		{{-- <p>
+			{{$status->isvip}}
+		</p> --}}
 	</div>
 
 
