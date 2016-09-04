@@ -190,7 +190,11 @@
 	<form class="" action="signitem" method="post">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<input type="hidden" name="{{$item->id}}" value="1">
-		<input class="btn btn-success"  type="submit" value="报名">
+		@if($item->end=="截止")
+			<input class="btn btn-danger"  type="submit" value="已截止" disabled>
+		@else
+			<input class="btn btn-success"  type="submit" value="报名">
+		@endif
 	</form>
 @endif
 </div>
