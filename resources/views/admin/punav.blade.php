@@ -27,27 +27,15 @@ padding-top: 0px;
 						 <a href="#">待启用</a>
 					</li>
 					<li class="dropdown">
-						 <a href="#" class="dropdown-toggle" data-toggle="dropdown">待启用<strong class="caret"></strong></a>
+						 <a href="#" class="dropdown-toggle" data-toggle="dropdown">考勤<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
 							<li>
-								 <a href="#">待启用</a>
+								 <a href="/checktime">签到</a>
 							</li>
 							<li>
-								 <a href="#">待启用</a>
+								 <a href="#">签到情况</a>
 							</li>
-							<li>
-								 <a href="#">待启用</a>
-							</li>
-							<li class="divider">
-							</li>
-							<li>
-								 <a href="#">待启用</a>
-							</li>
-							<li class="divider">
-							</li>
-							<li>
-								 <a href="#">待启用</a>
-							</li>
+							
 						</ul>
 					</li>
 					<li class="dropdown">
