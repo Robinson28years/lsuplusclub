@@ -69,7 +69,7 @@ padding-top: 0px;
 					@unless (!Auth::check())
 
 
-						{
+
 
 						<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -91,7 +91,7 @@ padding-top: 0px;
 							</li>
 						</ul>
 					</li>
-				}
+
 					@endunless
 			@unless (Auth::check())
 
