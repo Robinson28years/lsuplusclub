@@ -16,8 +16,8 @@
 // Route::get('/', function () {
 //     return view('index');
 // });
-Route::get('checktime','ChecktimeController@index');
-Route::post('checktime','ChecktimeController@store');
+// Route::get('checktime','ChecktimeController@index');
+// Route::post('checktime','ChecktimeController@store');
 
 Route::get('','IndexController@index');
 Route::get('auth/login','Auth\AuthController@getLogin');

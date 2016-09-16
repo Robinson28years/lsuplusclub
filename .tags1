@@ -4,11 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-ItemController	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^class ItemController extends Controller$/;"	class	line:11
-index	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^    public function index()$/;"	function	line:18
-create	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^    public function create()$/;"	function	line:28
-store	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^    public function store(Request $request)$/;"	function	line:39
-show	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^    public function show($id)$/;"	function	line:50
-edit	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^    public function edit($id)$/;"	function	line:61
-update	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^    public function update(Request $request, $id)$/;"	function	line:73
-destroy	E:\XAMPP\htdocs\laraveltest\app\Http\Controllers\ItemController.php	/^    public function destroy($id)$/;"	function	line:84

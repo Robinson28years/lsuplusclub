@@ -27,7 +27,7 @@ class ChecktimeController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
