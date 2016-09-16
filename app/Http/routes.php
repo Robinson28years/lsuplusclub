@@ -37,7 +37,7 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
-
+Route::get('item/{id}','ItemController@show');
 Route::group(['middleware' => 'admin'], function() {
     Route::post('vip/applyadmin/{id}','VipapplyController@update');
 	Route::get('vip','VipuserController@index');
