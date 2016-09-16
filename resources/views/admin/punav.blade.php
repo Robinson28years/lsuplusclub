@@ -94,14 +94,14 @@ padding-top: 0px;
 				}
 					@endunless
 			@unless (Auth::check())
-				{
+
 					<li>
 						<a href="auth/login">登录</a>
 					</li>
 					<li>
 						<a href="auth/register">注册 </a>
 					</li>
-					}
+
 					@endunless
 
 				</ul>

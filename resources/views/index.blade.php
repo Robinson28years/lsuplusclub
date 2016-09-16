@@ -62,6 +62,19 @@
 		</div>
 	</div>
 </div>
+<div class="visible-xs-block container-fluid col-xs-offset-6">
+	@unless (Auth::check())
+
+
+						<input class="btn btn-info"  type="button" onclick="window.location.href='/auth/login'" value="登录">
+
+
+						<input class="btn btn-success"  type="button" onclick="window.location.href='/auth/register'" value="注册">
+
+
+					@endunless
+</div>
+
 <div class="container-fluid-" style="
     margin-top: 35px;
 
