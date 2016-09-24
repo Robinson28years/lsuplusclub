@@ -24,7 +24,7 @@ padding-top: 0px;
 						 <a href="/">首页</a>
 					</li>
 					<li>
-						 <a href="#">待启用</a>
+						 <a href="#">问答</a>
 					</li>
 					<li>
 					<a href="https://qiye.aliyun.com/">邮箱</a>
