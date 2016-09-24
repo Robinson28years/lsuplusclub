@@ -26,6 +26,10 @@ padding-top: 0px;
 					<li>
 						 <a href="#">待启用</a>
 					</li>
+					<li>
+					<a href="https://qiye.aliyun.com/">邮箱</a>
+			   		</li>
+
 					{{-- <li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown">考勤<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
