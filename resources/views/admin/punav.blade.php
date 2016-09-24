@@ -24,7 +24,7 @@ padding-top: 0px;
 						 <a href="/">首页</a>
 					</li>
 					<li>
-						 <a href="#">待启用</a>
+						 <a href="#">问答</a>
 					</li>
 					{{-- <li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown">考勤<strong class="caret"></strong></a>
