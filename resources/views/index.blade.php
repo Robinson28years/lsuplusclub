@@ -130,6 +130,7 @@
 </div>
 
 </div>
+@include('item.department')
 <div class="container-fluid">
 	<div class="col-md-12" style="
     margin-top: 30px;
@@ -166,6 +167,7 @@
 
 
 @foreach($items as $item )
+	{{-- {{dd($item)}} --}}
 	@if($item->hide=="隐藏")
 	@else
 		<div class="col-md-2">

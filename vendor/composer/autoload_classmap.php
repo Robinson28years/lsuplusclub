@@ -21,6 +21,7 @@ return array(
     'AddUserIdColumToArticles' => $baseDir . '/database/migrations/2016_08_01_233551_add_user_id_colum_to_articles.php',
     'ChecktimeToTable' => $baseDir . '/database/migrations/2016_09_09_190532_checktime_to_table.php',
     'CreateArticlesTable' => $baseDir . '/database/migrations/2016_07_29_002747_create_articles_table.php',
+    'CreateDepartmentTable' => $baseDir . '/database/migrations/2016_09_25_144316_create_department_table.php',
     'CreateItemTable' => $baseDir . '/database/migrations/2016_08_13_100000_create_item_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',

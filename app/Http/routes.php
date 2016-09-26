@@ -47,6 +47,7 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::get('newedit/{id}','ItemController@edit');
 	Route::post('newedit/{id}','ItemController@update');
 	Route::get('allsign','AllSignController@index');
+	Route::get('department','DepartmentController@index');
 });
 
 Route::group(['middleware' => 'person'], function() {
@@ -58,4 +59,6 @@ Route::group(['middleware' => 'person'], function() {
 	Route::post('person/{id}','IndexController@update');
 	Route::get('baoming','BaoMingController@index');
 	Route::post('baoming/{id}','BaoMingController@update');
+
+	Route::post('department','DepartmentController@store');
 });

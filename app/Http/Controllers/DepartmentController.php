@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Item;
-use App\vipuser;
-use App\User;
+use App\Department;
 use DB;
-use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class IndexController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,51 +18,14 @@ class IndexController extends Controller
      */
     public function index()
     {
-		$items=Item::latest()->get();
-		if (Auth::user()) {
-			$users=Auth::user()->id;
-			$department = DB::table('department')
+		$departments = DB::table('department')
 							->join('users','department.userid','=','users.id')
-							// ->join('vipuser','users.email','=','vipuser.email')
-							->select('department.*','users.email')
-							->where('department.userid',$users)
-							->first();
+							->join('vipuser','users.email','=','vipuser.email')
+							->select('department.*','users.email','vipuser.name','vipuser.phone','vipuser.sphone','vipuser.class')
+							// ->where('department.userid',$users)
+							->get();
 							// dd($department);
-
-			$user=Auth::user()->email;
-			$status = DB::table('vipuser')->where("email", $user)->first();
-			if ($status) {
-
-			}
-			else {
-			$arr =array('isvip'=>'no','department'=>'no');
-			$status=json_encode($arr);
-			$status=json_decode($status);
-			}
-			if ($department) {
-
-			}
-			else {
-			$arr =array('department'=>'no');
-			$department=json_encode($arr);
-			$department=json_decode($department);
-			}
-		}
-		else {
-
-			$arr =array('isvip'=>'no');
-			$status=json_encode($arr);
-			$status=json_decode($status);
-			$arr =array('department'=>'no');
-			$department=json_encode($arr);
-			$department=json_decode($department);
-
-		}
-
-
-		// dd($user);
-		// dd($status);
-	   return view('index',compact('items','status','department'));
+		return view('admin.department',compact('departments'));
     }
 
     /**
@@ -86,7 +46,9 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		Department::create(array_merge($request->all()));
+
+		return redirect('/');
     }
 
     /**
@@ -108,9 +70,7 @@ class IndexController extends Controller
      */
     public function edit($id)
     {
-		$vip=vipuser::where('email', $id)->first();
-		// dd($user);
-		return view('auth.person',compact('vip'));
+        //
     }
 
     /**
@@ -122,9 +82,7 @@ class IndexController extends Controller
      */
     public function update(Request $request, $id)
     {
-		$vip=vipuser::where('id', $id)->first();
-		$vip->update($request->all());
-		return redirect('/');
+        //
     }
 
     /**
