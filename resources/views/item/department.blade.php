@@ -33,7 +33,7 @@
 						<input   type="submit"
 						@if($department->department=="no")
 							class="btn btn-success"
-							value="我要加入技术部" style="
+							value="我要加入办公室" style="
 
 							"
 						@elseif($department->department=="办公室")
