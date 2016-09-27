@@ -4,13 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-DepartmentController	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^class DepartmentController extends Controller$/;"	class	line:12
-index	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^    public function index()$/;"	function	line:19
-departments	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^		$departments = DB::table('department')$/;"	variable	line:21
-create	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^    public function create()$/;"	function	line:36
-store	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^    public function store(Request $request)$/;"	function	line:47
-show	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^    public function show($id)$/;"	function	line:61
-edit	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^    public function edit($id)$/;"	function	line:72
-update	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^    public function update(Request $request, $id)$/;"	function	line:84
-status	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^		$status=Department::where('id',$id)->first();$/;"	variable	line:87
-destroy	D:\lsu\lsuplusclub\app\Http\Controllers\DepartmentController.php	/^    public function destroy($id)$/;"	function	line:99
