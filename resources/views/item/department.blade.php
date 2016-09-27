@@ -26,7 +26,7 @@
 					<form class="" action="/department" method="post">
 						<input type="hidden" name="userid" value="{{Auth::user()->id}}">
 					@else
-					<form class="" action="" method="post">
+					<form class="" action="/department" method="post">
 					@endif
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="department" value="办公室">
@@ -84,7 +84,7 @@
 			<form class="" action="/department" method="post">
 			<input type="hidden" name="userid" value="{{Auth::user()->id}}">
 			@else
-			<form class="" action="" method="post">
+			<form class="" action="/department" method="post">
 			@endif
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="department" value="技术部">
