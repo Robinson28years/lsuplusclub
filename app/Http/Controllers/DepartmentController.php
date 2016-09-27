@@ -46,6 +46,7 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
+		// dd($request);
 		Department::create(array_merge($request->all()));
 
 		return redirect('/');
@@ -82,7 +83,11 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		// dd($request);
+		$status=Department::where('id',$id)->first();
+		// dd($status);
+		$status->update($request->all());
+		return redirect('/department');
     }
 
     /**

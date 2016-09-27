@@ -48,6 +48,7 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::post('newedit/{id}','ItemController@update');
 	Route::get('allsign','AllSignController@index');
 	Route::get('department','DepartmentController@index');
+	Route::post('department/{id}','DepartmentController@update');
 });
 
 Route::group(['middleware' => 'person'], function() {

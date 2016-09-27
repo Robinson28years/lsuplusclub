@@ -30,13 +30,13 @@
 					@endif
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="department" value="办公室">
+						<input type="hidden" name="status" value="审核中">
 						<input   type="submit"
 						@if($department->department=="no")
 							class="btn btn-success"
 							value="我要加入办公室" style="
-
 							"
-						@elseif($department->department=="办公室")
+						@elseif($department->department=="办公室"&&$department->status=="同意")
 								class="btn btn-success"
 								value="你已是办公室一员^_^" style="
 
@@ -44,6 +44,16 @@
 							@elseif($department->department=="技术部")
 								class="btn btn-warning"
 								value="无法加入" style="
+
+								" disabled
+							@elseif($department->status=="审核中")
+									class="btn btn-success"
+									value="正在审核中" style="
+
+									" disabled
+							@elseif($department->department=="不同意")
+								class="btn btn-warning"
+								value="未通过审核" style="
 
 								" disabled
 							@endif
@@ -78,13 +88,15 @@
 			@endif
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="department" value="技术部">
+				<input type="hidden" name="status" value="审核中">
 				<input  type="submit"
 				@if($department->department=="no")
 					class="btn btn-success"
 					value="我要加入技术部" style="
 	    			margin-left: 35px;
 					"
-				@elseif($department->department=="技术部")
+
+				@elseif($department->department=="技术部"&&$department->status=="同意")
 					class="btn btn-success"
 					value="你已是技术部一员^_^" style="
 					margin-left: 35px;
@@ -93,6 +105,15 @@
 					class="btn btn-warning"
 					value="无法加入" style="
 					margin-left: 35px;
+					" disabled
+				@elseif($department->status=="审核中")
+		           class="btn btn-success"
+		           value="正在审核中" style="
+		           " disabled
+				@elseif($department->department=="不同意")
+					class="btn btn-warning"
+					value="未通过审核" style="
+
 					" disabled
 				@endif
 

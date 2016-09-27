@@ -27,7 +27,7 @@ class IndexController extends Controller
 			$department = DB::table('department')
 							->join('users','department.userid','=','users.id')
 							// ->join('vipuser','users.email','=','vipuser.email')
-							->select('department.*','users.email')
+							->select('department.*','users.email','department.status')
 							->where('department.userid',$users)
 							->first();
 							// dd($department);
