@@ -49,11 +49,11 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::get('allsign','AllSignController@index');
 	Route::get('department','DepartmentController@index');
 	Route::post('department/{id}','DepartmentController@update');
+	Route::get('vip/apply','VipuserController@create');
+	Route::post('vip/apply','VipuserController@store');
 });
 
 Route::group(['middleware' => 'person'], function() {
-	Route::get('vip/apply','VipuserController@create');
-	Route::post('vip/apply','VipuserController@store');
 	Route::post('signitem','IndexController@index');
 	Route::post('signitem/{id}','VipuserController@update');
 	Route::get('person/{id}','IndexController@edit');
