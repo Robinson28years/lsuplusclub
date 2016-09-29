@@ -148,8 +148,8 @@
 
 		<input class="btn btn-success"  type="submit" onclick="window.location.href='vip/apply'"
 		@if($status->isvip=="no")
-			value="暂不开放申请"
-			disabled
+			value="申请成为会员"
+
 		@else
 		@if($status->isvip=="同意")
 			value="已成为正式会员"
