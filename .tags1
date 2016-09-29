@@ -4,3 +4,13 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+HomeController	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^class HomeController extends Controller$/;"	class	line:12
+index	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^    public function index()$/;"	function	line:19
+upload	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^	public function upload(){$/;"	function	line:23
+data	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^	        $data = EndaEditor::uploadImgFile('uploads');$/;"	variable	line:27
+create	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^    public function create()$/;"	function	line:37
+store	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^    public function store(Request $request)$/;"	function	line:48
+show	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^    public function show($id)$/;"	function	line:59
+edit	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^    public function edit($id)$/;"	function	line:70
+update	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^    public function update(Request $request, $id)$/;"	function	line:82
+destroy	D:\lsu\lsuplusclub\app\Http\Controllers\HomeController.php	/^    public function destroy($id)$/;"	function	line:93
