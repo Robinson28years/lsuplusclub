@@ -52,8 +52,9 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::get('vip/apply','VipuserController@create');
 	Route::post('vip/apply','VipuserController@store');
 
-	Route::post('/upload','ItemController@upload');
+	// Route::post('/upload','ItemController@upload');
 });
+	Route::post('/upload','HomeController@upload');
 
 Route::group(['middleware' => 'person'], function() {
 	Route::post('signitem','IndexController@index');

@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Item;
-use EndaEditor;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use EndaEditor;
 
-class ItemController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +17,17 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return view('item.edit');
+        //
     }
+	public function upload(){
 
+	        // path 为 public 下面目录，比如我的图片上传到 public/uploads 那么这个参数你传uploads 就行了
+
+	        $data = EndaEditor::uploadImgFile('uploads');
+
+	        return json_encode($data);
+
+	    }
     /**
      * Show the form for creating a new resource.
      *
@@ -39,9 +46,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-		Item::create(array_merge($request->all()));
-
-		return redirect('/');
+        //
     }
 
     /**
@@ -52,9 +57,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-		$content=Item::findOrFail($id);
-		$str = EndaEditor::MarkDecode("$content->content");
-		return view('item.content',compact('str'));
+        //
     }
 
     /**
@@ -65,8 +68,7 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-		$newedit=Item::where('id', $id)->first();
-		return view('item.newedit',compact('newedit'));
+        //
     }
 
     /**
@@ -78,19 +80,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-		$newedit=Item::where('id', $id)->first();
-		// dd($vip);
-		$newedit->update($request->all());
-		return redirect('/');
-    }
-	public function upload(){
-
-        // path 为 public 下面目录，比如我的图片上传到 public/uploads 那么这个参数你传uploads 就行了
-
-        $data = EndaEditor::uploadImgFile('uploads');
-		// dd($data);
-        return json_encode($data);
-
+        //
     }
 
     /**
