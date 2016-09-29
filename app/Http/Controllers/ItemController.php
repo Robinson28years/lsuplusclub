@@ -83,6 +83,15 @@ class ItemController extends Controller
 		$newedit->update($request->all());
 		return redirect('/');
     }
+	public function upload(){
+
+        // path 为 public 下面目录，比如我的图片上传到 public/uploads 那么这个参数你传uploads 就行了
+
+        $data = EndaEditor::uploadImgFile('uploads');
+
+        return json_encode($data);
+
+    }
 
     /**
      * Remove the specified resource from storage.

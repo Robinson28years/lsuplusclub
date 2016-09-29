@@ -1,10 +1,15 @@
-@extends('app')
-@section('content')
-	@include('admin.punav')
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="col-md-8 col-md-offset-4">
+			{!!$str!!}
 
-	<div class="col-md-8 col-md-offset-4">
-		{!!$str!!}
+	</body>
+</html>
+
 
 	</div>
-
-@endsection
