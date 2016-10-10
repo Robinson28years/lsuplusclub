@@ -35,6 +35,9 @@
 								 <a href="/baoming">报名情况</a>
 							</li>
 							<li>
+								<a href="{{url('library')}}">书籍信息</a>
+							</li>
+							<li>
 								 <a href="/department">部门成员</a>
 							</li>
 							<li>
@@ -113,7 +116,7 @@
 							<li class="divider">
 							</li>
 							<li>
-								 <a href="auth/logout">注销</a>
+								 <a href="/auth/logout">注销</a>
 							</li>
 						</ul>
 							</li>

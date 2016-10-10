@@ -38,6 +38,19 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::get('item/{id}','ItemController@show');
+//library
+Route::group(['middleware'=>'library'],function(){
+	Route::get('library/index','LibraryController@index');
+	Route::get('borrow','LibraryController@borrow');
+	Route::get('returnbook','LibraryController@returnbook');
+	Route::any('borrowinfo/{book_id}','LibraryController@borrowinfo');
+	Route::any('borrowcreate/{book_id}','LibraryController@createborrow');
+	Route::any('returnbook1/{book_id}','LibraryController@returnbook1');
+	Route::get('person/{id}','IndexController@edit');
+	Route::post('person/{id}','IndexController@update');
+});
+
+//
 Route::group(['middleware' => 'admin'], function() {
     Route::post('vip/applyadmin/{id}','VipapplyController@update');
 	Route::get('vip','VipuserController@index');
@@ -49,7 +62,8 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::get('allsign','AllSignController@index');
 	Route::get('department','DepartmentController@index');
 	Route::post('department/{id}','DepartmentController@update');
-
+	Route::resource('library','LibraryAdminController');
+	
 	// Route::post('/upload','ItemController@upload');
 	Route::post('/upload','HomeController@upload');
 });
@@ -59,8 +73,7 @@ Route::group(['middleware' => 'person'], function() {
 	Route::post('vip/apply','VipuserController@store');
 	Route::post('signitem','IndexController@index');
 	Route::post('signitem/{id}','VipuserController@update');
-	Route::get('person/{id}','IndexController@edit');
-	Route::post('person/{id}','IndexController@update');
+
 	Route::get('baoming','BaoMingController@index');
 	Route::post('baoming/{id}','BaoMingController@update');
 

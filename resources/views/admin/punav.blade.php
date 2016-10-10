@@ -24,12 +24,14 @@ padding-top: 0px;
 						 <a href="/">首页</a>
 					</li>
 					<li>
-						 <a href="#">问答</a>
+						 <a href="http://discuss.lsuplus.top/">论坛</a>
 					</li>
 					<li>
 					<a href="https://qiye.aliyun.com/">邮箱</a>
 			   		</li>
-
+					<li>
+						<a href="{{url('library/index')}}">图书区</a>
+					</li>
 					{{-- <li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown">考勤<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">

@@ -31,5 +31,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
 		'admin'=>\App\Http\Middleware\adminallow::class,
 		'person'=>\App\Http\Middleware\Personallow::class,
+        'library'=>\App\Http\Middleware\Libraryallow::class,
     ];
 }
