@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Library_administration;
 use App\Library_book;
+use App\vipuser;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,7 +24,8 @@ class LibraryAdminController extends Controller
     {
         $data = Library_book::orderBy('book_id','desc')->paginate(15);
         $data1 = Library_administration::all();
-        return view('admin.libraryinfor',compact('data','data1'));
+        $data2 = vipuser::all();
+        return view('admin.libraryinfor',compact('data','data1','data2'));
     }
     
     /**

@@ -75,16 +75,21 @@
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="myModalLabel{{$v->book_id}}">借书详情</h4>
                                             </div>
-                                                <div class="modal-body">
-                                                    <h4>书名：{{$v->book_name}}</h4>
-                                                    @foreach($data1 as $ccc)
+                                            <div class="modal-body">
+                                                <h4>书名：{{$v->book_name}}</h4>
+                                                @foreach($data1 as $ccc)
                                                     @if($ccc->book_id == $v->book_id && $ccc->return_time=='未归还' && $v->book_state =='已经借出')
                                                         <h4>借书人email:{{$ccc->borrower_email}}</h4>
+                                                        @foreach($data2 as $ddd)
+                                                            @if($ddd->email == $ccc->borrower_email)
+                                                                <h4>借书人姓名:{{$ddd->name}}</h4>
+                                                            @endif
+                                                        @endforeach
                                                         <h4>借书时间:{{$ccc->lending_time}}</h4>
                                                         <h4>预计归还时间:{{$ccc->return_about_time}}</h4>
                                                     @endif
-                                                    @endforeach
-                                                </div>
+                                                @endforeach
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </div>
