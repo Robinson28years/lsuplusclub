@@ -62,9 +62,7 @@
                                 </td>
                                 <td>
                                     @if($v->book_inter == null)
-                                        <button class="btn btn-success">
-                                            <a href="{{url('returnbook1/'.$v->book_id)}}">还书</a>
-                                        </button>
+                                        <input type="submit" class="btn btn-info" onclick="window.location.href='{{url('returnbook1/'.$v->book_id)}}'" value="还书">
                                     @else
                                         <button class="btn btn-success" disabled>
                                             {{$v->book_inter}}

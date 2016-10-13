@@ -22,7 +22,7 @@ class LibraryAdminController extends Controller
      */
     public function index()
     {
-        $data = Library_book::orderBy('book_id','desc')->paginate(15);
+        $data = Library_book::all();
         $data1 = Library_administration::all();
         $data2 = vipuser::all();
         return view('admin.libraryinfor',compact('data','data1','data2'));

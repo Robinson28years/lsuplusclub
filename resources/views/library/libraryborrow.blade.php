@@ -61,9 +61,7 @@
                                     {{$v->book_state}}
                                 </td>
                                 <td>
-                                    <button class="btn btn-success">
-                                        <a href="{{url('borrowinfo/'.$v->book_id)}}">借书</a>
-                                    </button>
+                                    <input type="submit" class="btn btn-info" onclick="window.location.href='{{url('borrowinfo/'.$v->book_id)}}'" value="借书">
                                 </td>
                             </tr>
                         @else

@@ -5,9 +5,7 @@
 
         <div class="row clearfix">
             <div class="col-md-12 column">
-                <button class="btn btn-info" style="margin-top: 30px">
-                    <a href="library/create">添加书籍信息</a>
-                </button>
+                <input type="submit" class="btn btn-info" onclick="window.location.href='/library/create'" value="添加书籍">
                 <table class="table" style="margin-top: 30px">
                     <thead>
                     <tr>
