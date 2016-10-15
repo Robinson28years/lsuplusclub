@@ -82,7 +82,7 @@ class VipapplyController extends Controller
         $vip=vipuser::where('id', $id)->first();
 		// dd($vip);
 		$vip->update($request->all());
-		return redirect('/');
+		return redirect('/vip');
     }
 
     /**
