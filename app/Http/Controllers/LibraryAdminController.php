@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
@@ -57,7 +58,11 @@ class LibraryAdminController extends Controller
         if ($valiedator->passes()) {
             $re = Library_book::create($input);
             if ($re) {
-                return redirect('library');
+                if(Auth::user()->admin==1){
+                    return redirect('library');
+                }else{
+                    return redirect('library/index');        
+                }
             } else {
                 return back()->with('errors', '书籍添加失败，请稍后重试!');
             }
@@ -92,6 +97,11 @@ class LibraryAdminController extends Controller
         return back();
     }
 
+    public function editer($book_id){
+        $data = Library_book::find($book_id);
+        return view('admin.libraryedit',compact('data'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -101,7 +111,14 @@ class LibraryAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = Input::except('_token','_method');
+        $re = Library_book::find($id)->update($input);
+        if ($re){
+            return redirect('/library');
+        }else{
+            return back()->with('errors','分类信息更新失败，请稍后重试！');
+        }
+
     }
 
     /**
@@ -112,6 +129,13 @@ class LibraryAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $re = Library_book::where('book_id',$id)->delete();
+        if($re){
+            $data=1;
+        }else{
+            $data = 0;
+        }
+        return $data;
     }
+
 }

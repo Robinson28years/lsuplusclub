@@ -82,4 +82,6 @@ class LibraryController extends Controller
             ->update($arr);
         return back();
     }
+    //添加书籍
+
 }
