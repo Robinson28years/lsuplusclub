@@ -50,6 +50,14 @@ Route::group(['middleware'=>'library'],function(){
 	Route::any('returnbook1/{book_id}','LibraryController@returnbook1');
 	Route::get('person/{id}','IndexController@edit');
 	Route::post('person/{id}','IndexController@update');
+
+	Route::post('signitem','IndexController@index');
+	Route::post('signitem/{id}','VipuserController@update');
+
+	Route::get('baoming','BaoMingController@index');
+	Route::post('baoming/{id}','BaoMingController@update');
+
+	Route::post('department','DepartmentController@store');
 });
 
 //
@@ -73,11 +81,5 @@ Route::group(['middleware' => 'admin'], function() {
 Route::group(['middleware' => 'person'], function() {
 	Route::get('vip/apply','VipuserController@create');
 	Route::post('vip/apply','VipuserController@store');
-	Route::post('signitem','IndexController@index');
-	Route::post('signitem/{id}','VipuserController@update');
 
-	Route::get('baoming','BaoMingController@index');
-	Route::post('baoming/{id}','BaoMingController@update');
-
-	Route::post('department','DepartmentController@store');
 });
