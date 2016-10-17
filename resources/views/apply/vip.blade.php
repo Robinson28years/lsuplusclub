@@ -20,19 +20,19 @@ margin-top: 20px;
 	</div>
 	<div class="form-group">
 		<label>学号</label>
-		<input type="text" name="schoolid"  class="form-control" value="">
+		<input type="text" name="schoolid"  class="form-control" value="" required="required">
 	</div>
 	<div class="form-group">
 		<label>学院</label>
-		<input type="text" name="college"  class="form-control" value="">
+		<input type="text" name="college"  class="form-control" value="" required="required">
 	</div>
 	<div class="form-group">
 		<label>班级</label>
-		<input type="text" name="class"  class="form-control" value="">
+		<input type="text" name="class"  class="form-control" value="" required="required">
 	</div>
 	<div class="form-group">
 		<label>手机</label>
-		<input type="text" name="phone"  class="form-control" value="">
+		<input type="text" name="phone"  class="form-control" value="" required="required">
 	</div>
 	<div class="form-group">
 		<label>短号</label>
