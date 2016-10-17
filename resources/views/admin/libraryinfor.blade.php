@@ -5,8 +5,8 @@
 
         <div class="row clearfix">
             <div class="col-md-12 column">
-                <input type="submit" class="btn btn-info" onclick="window.location.href='/library/create'" value="添加书籍">
-                <table class="table" style="margin-top: 30px">
+                <input type="submit" class="btn btn-info btn-lg" style="margin-top: 10px" onclick="window.location.href='/library/create'" value="添加书籍">
+                <table class="table" style="margin-top: 15px">
                     <thead>
                     <tr>
                         <th>
@@ -26,6 +26,9 @@
                         </th>
                         <th>
                             还书确认
+                        </th>
+                        <th>
+                            操作
                         </th>
                         <th>
                             借书情况
@@ -54,16 +57,18 @@
                                 @foreach($data1 as $ccc)
                                     @if($ccc->book_id == $v->book_id)
                                         @if($ccc->book_inter == '审核中'&& $ccc->return_time=='未归还')
-                                            <button class="btn btn-success">
-                                                <a href="{{url('library/'.$v->book_id.'/edit')}}">还书审核确认</a>
-                                            </button>
+                                            <input type="submit" class="btn btn-info" onclick="window.location.href='{{url('library/'.$v->book_id.'/edit')}}'" value="还书确认">
                                         @endif
                                     @endif
                                 @endforeach
                             </td>
                             <td>
+                                <a id="delete-btn" href="javascript:;" onclick="delCate({{$v->book_id}})" class="btn btn-danger">删除</a>
+                                <a id="delete-btn" href="{{url('library/editer/'.$v->book_id)}}" class="btn btn-info">修改</a>
+                            </td>
+                            <td>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{$v->book_id}}">
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{$v->book_id}}">
                                     借书详情查看
                                 </button>
                                 <!-- Modal -->
@@ -102,4 +107,51 @@
             </div>
         </div>
     </div>
+    <script>
+        function delCate(book_id) {
+            swal({
+                title: "是否删除?",
+                text: "你这个操作将会删除这本书且不能恢复!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "是的，删除这本书",
+                closeOnConfirm: false
+            }, function(){
+                $.post("{{url('library/')}}/"+book_id,{'_method':'delete','_token':"{{csrf_token()}}"}).done(function(data) {
+                    location.href=location.href;
+                }).error(function(data) {
+                    swal("OMG", "删除操作失败了!", "error");
+                });
+            });
+        }
+    </script>
+    {{--<script>--}}
+        {{--//删除分类--}}
+        {{--function delbook(book_id) {--}}
+            {{--var serverAddress=serverAddress+"{{url('library/')}}/"+book_id;--}}
+            {{--swal({--}}
+                {{--title: "是否删除?",--}}
+                {{--text: "你这个操作将会删除这本书且不能恢复!",--}}
+                {{--type: "warning",--}}
+                {{--showCancelButton:"true",--}}
+                {{--showConfirmButton:"true",--}}
+                {{--confirmButtonText:"确定",--}}
+                {{--cancelButtonText:"取消",--}}
+                {{--animation:"slide-from-top"--}}
+            {{--}, function(){--}}
+                {{--$.ajax({--}}
+                    {{--type: "post",--}}
+                    {{--url: serverAddress,--}}
+                    {{--traditional: true,--}}
+                    {{--dataType:"json",--}}
+                    {{--_method: 'delete',--}}
+                    {{--_token: "{{csrf_token()}}"--}}
+                {{--});--}}
+                {{--if(data==1){--}}
+                    {{--swal("Deleted!", "Your imaginary file has been deleted.", "success");--}}
+                {{--}--}}
+            {{--})--}}
+        {{--}--}}
+    {{--</script>--}}
 @endsection
