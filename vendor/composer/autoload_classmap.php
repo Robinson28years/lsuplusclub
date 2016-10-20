@@ -10,7 +10,6 @@ return array(
     'AddColumToArticles' => $baseDir . '/database/migrations/2016_07_29_004130_add_colum_to_articles.php',
     'AddCs4ToVipuser' => $baseDir . '/database/migrations/2016_08_10_211931_add_cs4_to_vipuser.php',
     'AddHideToItem' => $baseDir . '/database/migrations/2016_08_15_110013_add_hide_to_item.php',
-    'AddIntoOrderNameToLibraryBook' => $baseDir . '/database/migrations/2016_10_16_151041_add_into_order_name_to_library_book.php',
     'AddIsvipToUsers' => $baseDir . '/database/migrations/2016_08_11_143803_add_isvip_to_users.php',
     'AddIsvipToVipuser' => $baseDir . '/database/migrations/2016_08_12_084639_add_isvip_to_vipuser.php',
     'AddNameToVipuser' => $baseDir . '/database/migrations/2016_08_10_211632_add_name_to_vipuser.php',

@@ -83,3 +83,7 @@ Route::group(['middleware' => 'person'], function() {
 	Route::post('vip/apply','VipuserController@store');
 
 });
+
+Route::group(['prefix'=>'api/v1'],function(){
+	Route::resource('user','ApiController');
+});
