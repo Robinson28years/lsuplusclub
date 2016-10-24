@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\vipuser;
 use App\Transform\UserTransform;
 use App\User;
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -63,7 +64,8 @@ class ApiController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        //$user = User::find($id);
+		$user =User::where("email", $id)->first();
 		if (! $user) {
 			return \Response::json([
 				'status'=>'failed',
