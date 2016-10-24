@@ -7,6 +7,7 @@
 	{{-- <link rel="stylesheet" href="{{asset('assets/css/style.css') }}"> --}}
 
 	<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css') }}">
+	<link rel="shortcut icon" href="{{asset('assets/img/favicon.ico') }}" type="image/x-icon" />
 	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
 	<script src="{{asset('assets/js/bootstrap.min.js') }}"></script>
 	<script src="{{asset('assets/js/jquery1.js')}}"></script>

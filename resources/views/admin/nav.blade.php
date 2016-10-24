@@ -10,7 +10,7 @@
 
 						  <a class="navbar-brand" href="#" style="
 	    padding-top: 0px;
-	"><img src="{{asset('assets/img/hui.jpg') }}" width=50px;height=50px; alt="" /></a>
+	"><img src="{{asset('assets/img/pluss.png') }}" width=50px;height=50px; alt="" /></a>
 					</div>
 
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
