@@ -41,6 +41,10 @@
 								 <a href="/department">部门成员</a>
 							</li>
 							<li>
+								 <a href="/awardadmin">通关统计</a>
+							</li>
+
+							<li>
 								 <a href="/allsign">全部注册人员</a>
 							</li>
 							<li class="dropdown">

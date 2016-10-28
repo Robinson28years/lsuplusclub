@@ -130,6 +130,7 @@
 </div>
 
 </div>
+@include('award.index')
 @include('item.department')
 <div class="container-fluid">
 	<div class="col-md-12" style="

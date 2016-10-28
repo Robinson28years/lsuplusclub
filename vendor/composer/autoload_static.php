@@ -301,6 +301,7 @@ class ComposerStaticInit0b8921e6b33fb3660b85dfd3ab1a2a14
         'AddUserIdColumToArticles' => __DIR__ . '/../..' . '/database/migrations/2016_08_01_233551_add_user_id_colum_to_articles.php',
         'ChecktimeToTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_09_190532_checktime_to_table.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_29_002747_create_articles_table.php',
+        'CreateAwardTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_220751_create_award_table.php',
         'CreateDepartmentTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_27_114524_create_department_table.php',
         'CreateItemTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_13_100000_create_item_table.php',
         'CreateLibraryAdministrationTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_09_161047_create_library_administration_table.php',

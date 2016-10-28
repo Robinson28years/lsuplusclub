@@ -58,6 +58,8 @@ Route::group(['middleware'=>'library'],function(){
 	Route::post('baoming/{id}','BaoMingController@update');
 
 	Route::post('department','DepartmentController@store');
+
+	Route::resource('award','AwardController');
 });
 
 //
@@ -76,6 +78,8 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::get('library/editer/{book_id}','LibraryAdminController@editer');
 	// Route::post('/upload','ItemController@upload');
 	Route::post('/upload','HomeController@upload');
+
+	Route::get('/awardadmin','AwardController@admin');
 });
 
 Route::group(['middleware' => 'person'], function() {

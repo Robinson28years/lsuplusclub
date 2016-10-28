@@ -22,6 +22,7 @@ return array(
     'AddUserIdColumToArticles' => $baseDir . '/database/migrations/2016_08_01_233551_add_user_id_colum_to_articles.php',
     'ChecktimeToTable' => $baseDir . '/database/migrations/2016_09_09_190532_checktime_to_table.php',
     'CreateArticlesTable' => $baseDir . '/database/migrations/2016_07_29_002747_create_articles_table.php',
+    'CreateAwardTable' => $baseDir . '/database/migrations/2016_10_27_220751_create_award_table.php',
     'CreateDepartmentTable' => $baseDir . '/database/migrations/2016_09_27_114524_create_department_table.php',
     'CreateItemTable' => $baseDir . '/database/migrations/2016_08_13_100000_create_item_table.php',
     'CreateLibraryAdministrationTable' => $baseDir . '/database/migrations/2016_10_09_161047_create_library_administration_table.php',
