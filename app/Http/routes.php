@@ -58,7 +58,7 @@ Route::group(['middleware'=>'library'],function(){
 	Route::post('baoming/{id}','BaoMingController@update');
 
 	Route::post('department','DepartmentController@store');
-
+	Route::post('/upload','HomeController@upload');
 	Route::resource('award','AwardController');
 });
 
@@ -76,10 +76,9 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::post('department/{id}','DepartmentController@update');
 	Route::resource('library','LibraryAdminController');
 	Route::get('library/editer/{book_id}','LibraryAdminController@editer');
-	// Route::post('/upload','ItemController@upload');
-	Route::post('/upload','HomeController@upload');
 
-	Route::get('/awardadmin','AwardController@admin');
+	Route::get('awardadmin','AwardController@admin');
+	// Route::post('/upload','ItemController@upload');
 });
 
 Route::group(['middleware' => 'person'], function() {
