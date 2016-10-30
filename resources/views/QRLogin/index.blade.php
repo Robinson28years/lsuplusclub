@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>qrlogin</title>
-	</head>
-	<body>
-		 <img src="http://qr.topscan.com/api.php?text={{$randnum}}" width="300px"/>
+@extends('app')
+@section('content')
+	<div class="row clearfix" style="
+margin-top: 11%;
+">
+</div>
+	<div class="col-md-4 col-md-offset-4">
 
+		<img src="http://qr.topscan.com/api.php?text={{$randnum}}" width="300px"/>
+		<h1>App扫一扫即可登录</h1>
+	</div>
 		 <script>
 		 	function polling(){
 				var xmlHttp;
@@ -30,6 +32,4 @@
 			}
 			setInterval("polling()",1000);
 		 </script>
-
-	</body>
-</html>
+@stop
