@@ -21,6 +21,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+
 		$items=Item::latest()->get();
 		if (Auth::user()) {
 			$users=Auth::user()->id;

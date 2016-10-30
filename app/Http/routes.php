@@ -39,6 +39,10 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::get('item/{id}','ItemController@show');
 //library
+Route::get('QRLogin','QRLoginController@index');
+Route::get('QRLogin/{randnum}','QRLoginController@polling');
+Route::post('QRLogin/{randnum}','QRLoginController@update');
+
 Route::group(['middleware'=>'library'],function(){
 	Route::get('create','LibraryAdminController@create');
 	Route::post('store','LibraryAdminController@store');

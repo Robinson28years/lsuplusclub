@@ -307,6 +307,7 @@ class ComposerStaticInit0b8921e6b33fb3660b85dfd3ab1a2a14
         'CreateLibraryAdministrationTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_09_161047_create_library_administration_table.php',
         'CreateLibraryBookTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_09_162650_create_library_book_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateQrloginTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_29_183554_create_qrlogin_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateVipuserTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_10_102020_create_vipuser_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

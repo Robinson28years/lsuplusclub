@@ -4,22 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\vipuser;
-use App\Transform\UserTransform;
-use App\User;
-use App\QRLogin;
-use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
+use App\QRLogin;
+use Auth;
+use App\User;
 
-class ApiController extends Controller
+class QRLoginController extends Controller
 {
-	protected $UserTransform;
-	public function __construct(UserTransform $UserTransform)
-	{
-		$this->UserTransform = $UserTransform;
-		$this->middleware('auth.basic');
-	}
     /**
      * Display a listing of the resource.
      *
@@ -27,13 +20,15 @@ class ApiController extends Controller
      */
     public function index()
     {
-        // return User::all();
-		$user = User::all();
-		return \Response::json([
-			'status'=>'success',
-			'status_code'=> 200,
-			'data'=> $this -> UserTransform->transformCollection($user->toArray())
-		]);
+		$randnum = "";
+		for ($i=0; $i < 8; $i++) {
+			$randnum .=rand(0,9);
+		}
+		QRLogin::create(['randnum' => $randnum]);
+		// DB::table('qrlogin')->insert(
+    	// ['randnum' => $randnum]
+		// );
+        return view('QRLogin.index',compact('randnum'));
     }
 
     /**
@@ -54,8 +49,7 @@ class ApiController extends Controller
      */
     public function store(Request $request)
     {
-
-        // dd("$request");
+        //
     }
 
     /**
@@ -66,20 +60,7 @@ class ApiController extends Controller
      */
     public function show($id)
     {
-        //$user = User::find($id);
-		$user =User::where("email", $id)->first();
-		if (! $user) {
-			return \Response::json([
-				'status'=>'failed',
-				'status_code'=>404,
-				'message'=>'not found'
-			]);
-		}
-		return \Response::json([
-			'status'=>'success',
-			'status_code'=> 200,
-			'data'=> $this ->UserTransform-> transform($user)
-		]);
+        //
     }
 
     /**
@@ -102,7 +83,9 @@ class ApiController extends Controller
      */
     public function update(Request $request, $randnum)
     {
-
+		$rand=QRLogin::where('randnum', $randnum)->first();
+		// dd($vip);
+		$rand->update($request->all());
     }
 
     /**
@@ -116,19 +99,17 @@ class ApiController extends Controller
         //
     }
 
-	// public function transformCollection($user)
-	// {
-	// 	return array_map([$this,'transform'],$user->toArray());
-	// }
-	//
-	// public function transform($user)
-	// {
-	// 	// return array_map(function($user){
-	// 		return [
-	// 			'id'=>$user['id'],
-	// 			'user'=>$user['name'],
-	// 			'email'=>$user['email']
-	// 		];
-	// 	// });
-	// }
+	public function polling($randnum)
+	{
+		$result=QRLogin::where('randnum', $randnum)->first();
+		if($result->userid !=""){
+			// $user=1;
+			//Auth::login($user);
+			Auth::loginUsingId($result->userid);
+			echo "true";
+		}
+		else
+		echo "false";
+
+	}
 }

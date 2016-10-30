@@ -28,6 +28,7 @@ return array(
     'CreateLibraryAdministrationTable' => $baseDir . '/database/migrations/2016_10_09_161047_create_library_administration_table.php',
     'CreateLibraryBookTable' => $baseDir . '/database/migrations/2016_10_09_162650_create_library_book_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateQrloginTable' => $baseDir . '/database/migrations/2016_10_29_183554_create_qrlogin_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateVipuserTable' => $baseDir . '/database/migrations/2016_08_10_102020_create_vipuser_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
