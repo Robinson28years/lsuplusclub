@@ -21,7 +21,8 @@
 					if(xmlHttp.status == 200 && xmlHttp.readyState == 4){
 						result = xmlHttp.responseText;
 						if(result == 'true')
-							window.location.href = 'http://lsuplus.top/';
+							window.location.href='/';
+							// window.location.href = 'http://lsuplus.top/';
 					}
 				}
 				xmlHttp.open("GET","QRLogin/{{$randnum}}",true);
