@@ -4,9 +4,9 @@
         我有一条记录！
     @endif --}}
 {{-- dd($request->user()); --}}
-<div class="container-fluid hidden-xs">
+<div class="container-fluid ">
 	@include('admin.punav')
-	<div class="row clearfix" style="
+	<div class="row clearfix hidden-xs" style="
 
 ">
 		<div class="col-md-12 column" style="
