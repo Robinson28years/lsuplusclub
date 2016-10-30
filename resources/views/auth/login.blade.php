@@ -12,6 +12,7 @@
 	<input type="password" placeholder="密码"  name="password">
 	 <input type="submit" value="登录" />
 	<a href="/password/email">忘记或需要修改密码</a>
+	<input type="btn" class="btn btn-success" onclick="window.location.href='/QRLogin'" value="扫码登录" style="background : #415671" />
   </form>
 
 	@include('errors.anyerrors')
