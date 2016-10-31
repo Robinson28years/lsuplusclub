@@ -81,11 +81,17 @@ class QRLoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $randnum)
+    public function update(Request $request,$randnum,$password)
     {
 		$rand=QRLogin::where('randnum', $randnum)->first();
-		// dd($vip);
+		$password2=User::where('id',$request->userid)->first();
+		if (password_verify($password, $password2->password)) {
+			// echo "true";
 		$rand->update($request->all());
+		}
+		else {
+			echo "no";
+		}
     }
 
     /**
@@ -103,10 +109,8 @@ class QRLoginController extends Controller
 	{
 		$result=QRLogin::where('randnum', $randnum)->first();
 		if($result->userid !=""){
-			// $user=1;
-			//Auth::login($user);
-			Auth::loginUsingId($result->userid);
-			echo "true";
+				Auth::loginUsingId($result->userid);
+				echo "true";
 		}
 		else
 		echo "false";

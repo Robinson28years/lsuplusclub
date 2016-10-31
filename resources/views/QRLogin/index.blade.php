@@ -24,6 +24,7 @@ margin-top: 11%;
 						result = xmlHttp.responseText;
 						if(result == 'true')
 							window.location.href='/';
+							// window.location.href = 'http://www.baidu.com';
 							// window.location.href = 'http://lsuplus.top/';
 					}
 				}

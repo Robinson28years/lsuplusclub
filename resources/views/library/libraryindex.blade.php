@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app2')
 @section('content')
     @include('admin.punav')
     <div class="container-fluid">
