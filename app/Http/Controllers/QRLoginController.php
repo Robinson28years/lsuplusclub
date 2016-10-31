@@ -81,7 +81,7 @@ class QRLoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$randnum,$password)
+    public function update(Request $request,$randnum)
     {
 		$rand=QRLogin::where('randnum', $randnum)->first();
 		$password2=User::where('id',$request->userid)->first();
