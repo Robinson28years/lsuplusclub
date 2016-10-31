@@ -85,7 +85,7 @@ class QRLoginController extends Controller
     {
 		$rand=QRLogin::where('randnum', $randnum)->first();
 		$password2=User::where('id',$request->userid)->first();
-		if (password_verify($password, $password2->password)) {
+		if ($password==$password2->password) {
 			// echo "true";
 		$rand->update($request->all());
 		}
