@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Events\UserRegistered;
 use App\User;
 use App\vipuser;
 use App\Http\Requests;
@@ -80,7 +81,9 @@ class VipapplyController extends Controller
     {
 		// dd($request);
         $vip=vipuser::where('id', $id)->first();
+		$user=User::where('email', $vip->email)->first();
 		// dd($vip);
+		event(new UserRegistered($user));
 		$vip->update($request->all());
 		return redirect('/vip');
     }
