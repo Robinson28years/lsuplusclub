@@ -7,7 +7,9 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-		"yuanchao/laravel-5-markdown-editor": "dev-master"
+		"yuanchao/laravel-5-markdown-editor": "dev-master",
+		"dingo/api": "1.0.*@dev",
+		"tymon/jwt-auth": "0.5.*"
 
     },
     "require-dev": {

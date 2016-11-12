@@ -19,6 +19,23 @@
 // Route::get('checktime','ChecktimeController@index');
 // Route::post('checktime','ChecktimeController@store');
 
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function ($api) {
+    $api->group(['namespace' => 'App\Api\Controllers'],function ($api){
+        $api->group(['middleware'=>['jwt.auth']],function ($api){
+            $api->get('lessons','LessonsController@index');
+            $api->get('lessons/{id}','LessonsController@show');
+            $api->get('user/me','AuthController@getAuthenticatedUser');
+        });
+        $api->group(['middleware'=>'jwt.refresh'],function ($api){
+            $api->get('refresh','AuthController@refresh');
+        });
+        $api->post('user/login','AuthController@authenticate');
+
+    });
+});
+
+
 Route::get('','IndexController@index');
 Route::get('auth/login','Auth\AuthController@getLogin');
 Route::post('auth/login','Auth\AuthController@postLogin');

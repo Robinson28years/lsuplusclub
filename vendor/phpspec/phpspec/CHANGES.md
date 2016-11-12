@@ -1,3 +1,15 @@
+2.5.3 / 2016-09-26
+==================
+
+* [fixed] Accidental linebreaks in spec name are not allowed (@randompixel)
+* [fixed] Throwable can be passed as instance to shouldThrow (@jameshalsall)
+* [performance] Phar version now has an optimised autoloader
+
+2.5.2 / 2016-09-04
+==================
+
+* [fixed] Exceptions are properly highlighted in error messages (@ciaranmcnulty)
+
 2.5.1 / 2016-07-16
 ==================
 
