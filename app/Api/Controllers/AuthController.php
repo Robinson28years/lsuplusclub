@@ -13,6 +13,7 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use App\User;
 
 class AuthController extends BaseController
 {
@@ -37,13 +38,17 @@ class AuthController extends BaseController
 
     public function register(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
         $newUsr=[
             'email' => $request->get('email'),
             'name' => $request->get('name'),
             'password' =>bcrypt( $request->get('password'))
         ];
         $user = User::create($newUsr);
-        $token = JWTAuth::formUser($user);
+        $token = JWTAuth::fromUser($user);
 
         return response()->json(compact('token'));
 
@@ -79,5 +84,6 @@ class AuthController extends BaseController
     {
 
     }
+
 
 }
