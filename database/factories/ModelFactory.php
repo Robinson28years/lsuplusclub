@@ -11,18 +11,29 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+//$factory->define(App\User::class, function (Faker\Generator $faker) {
+//    return [
+//        'name' => $faker->name,
+//        'email' => $faker->safeEmail,
+//        'avatar' =>$faker->imageUrl(256,256),
+//        'password' => bcrypt(str_random(10)),
+//        'remember_token' => str_random(10),
+//    ];
+//});
+
+$factory->define(App\Discuss::class, function (Faker\Generator $faker) {
+    $user_ids = \App\User::lists('id')->toArray();
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'title' => $faker->sentence,
+//        'body' => $faker->paragraphs(3,true),
+        'user_id' =>$faker->randomElements($user_ids),
+        'last_user_id' => $faker->randomElements($user_ids),
     ];
 });
 
-$factory->define(App\Library_book::class, function (Faker\Generator $faker) {
-    return [
-        'book_name' => $faker->name,
-        'order_email' => $faker->safeEmail,
-    ];
-});
+//$factory->define(App\Library_book::class, function (Faker\Generator $faker) {
+//    return [
+//        'book_name' => $faker->name,
+//        'order_email' => $faker->safeEmail,
+//    ];
+//});

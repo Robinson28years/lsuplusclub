@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddAdminColumToUsers' => $baseDir . '/database/migrations/2016_08_05_153438_add_admin_colum_to_users.php',
+    'AddAvatarToUsersTable' => $baseDir . '/database/migrations/2016_11_12_184941_add_avatar_to_users_table.php',
     'AddColumToArticles' => $baseDir . '/database/migrations/2016_07_29_004130_add_colum_to_articles.php',
     'AddCs4ToVipuser' => $baseDir . '/database/migrations/2016_08_10_211931_add_cs4_to_vipuser.php',
     'AddHideToItem' => $baseDir . '/database/migrations/2016_08_15_110013_add_hide_to_item.php',
@@ -92,6 +93,7 @@ return array(
     'CreateArticlesTable' => $baseDir . '/database/migrations/2016_07_29_002747_create_articles_table.php',
     'CreateAwardTable' => $baseDir . '/database/migrations/2016_10_27_220751_create_award_table.php',
     'CreateDepartmentTable' => $baseDir . '/database/migrations/2016_09_27_114524_create_department_table.php',
+    'CreateDiscussTable' => $baseDir . '/database/migrations/2016_11_12_183700_create_discuss_table.php',
     'CreateItemTable' => $baseDir . '/database/migrations/2016_08_13_100000_create_item_table.php',
     'CreateLibraryAdministrationTable' => $baseDir . '/database/migrations/2016_10_09_161047_create_library_administration_table.php',
     'CreateLibraryBookTable' => $baseDir . '/database/migrations/2016_10_09_162650_create_library_book_table.php',

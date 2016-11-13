@@ -26,11 +26,13 @@ $api->version('v1', function ($api) {
             $api->get('lessons','LessonsController@index');
             $api->get('lessons/{id}','LessonsController@show');
             $api->get('user/me','AuthController@getAuthenticatedUser');
+
         });
         $api->group(['middleware'=>'jwt.refresh'],function ($api){
             $api->get('refresh','AuthController@refresh');
         });
         $api->post('user/login','AuthController@authenticate');
+        $api->post('register','AuthController@register');
 
     });
 });
