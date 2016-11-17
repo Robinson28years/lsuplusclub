@@ -27,7 +27,13 @@ $api->version('v1', function ($api) {
             $api->get('lessons/{id}','LessonsController@show');
             $api->get('user/me','AuthController@getAuthenticatedUser');
 
+            $api->group(['middleware' => 'person'], function() {
+            });
+            $api->post('resetpaw','AuthController@apiResetPassword');
+
         });
+
+
         $api->group(['middleware'=>'jwt.refresh'],function ($api){
             $api->get('refresh','AuthController@refresh');
         });
@@ -108,7 +114,11 @@ Route::group(['middleware' => 'person'], function() {
 	Route::get('vip/apply','VipuserController@create');
 	Route::post('vip/apply','VipuserController@store');
 
+    Route::get('resetpaw','ResetController@index');
+    Route::post('resetpaw','ResetController@reset');
+
 });
+
 
 Route::group(['prefix'=>'api/v1'],function(){
 	Route::resource('user','ApiController');

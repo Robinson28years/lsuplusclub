@@ -21,6 +21,7 @@ class AuthController extends BaseController
     {
         // grab credentials from the request
         $credentials = $request->only('email', 'password');
+//        dd($credentials);
 
         try {
             // attempt to verify the credentials and create a token for the user
@@ -80,8 +81,46 @@ class AuthController extends BaseController
         return response()->json(compact('user'));
     }
 
-    public function refresh()
+    public function apiResetPassword(Request $request)
     {
+
+//        dd($request->token);
+        $user = JWTAuth::parseToken()->authenticate();
+        $id = $user->id;
+        $ppp = User::where('id',$id)->first();
+        $truePassword = $ppp->password;
+        $oldpassword=$request->oldpassword;
+        $password=$request->password;
+        $email = $user->email;
+
+        $this->validate($request, [
+            'oldpassword' => 'required|min:6',
+            'password' => 'required|confirmed|min:6',
+        ]);
+    if (password_verify($oldpassword,$truePassword)){
+        $user->password = bcrypt($password);
+        $user->save();
+        $user2 =array(
+            "email" => $email,
+            "password" => $password,
+        );
+        $token =JWTAuth::attempt($user2);
+//        $token=json_encode($token);
+        return response()->json(compact('token'));
+
+    }
+    else
+    {
+            $error = 'old_password_error';
+            $status = 400;
+            return response()->json(compact('error','status'));
+
+    }
+
+
+    }
+
+    public function refresh(){
 
     }
 
