@@ -108,6 +108,18 @@ Route::group(['middleware' => 'person'], function() {
 	Route::get('vip/apply','VipuserController@create');
 	Route::post('vip/apply','VipuserController@store');
 
+    Route::resource('discuss','PostController');
+    Route::post('discuss/{id}/update','PostController@update');
+    Route::post('discuss/comment','CommentsController@store');
+
+    Route::get('user/avatar','UserController@avatar');
+    Route::get('user/avatarChange','UserController@avatarChange');
+    Route::post('avatar','UserController@changeAvatar');
+//    Route::get('/avatar/upload','UsersController@avatar');
+    Route::post('/avatar/upload','UserController@avatarUpload');
+    Route::post('/crop/api','UserController@cropAvatar');
+//    Route::get('discuss/create','Pos')
+
 });
 
 Route::group(['prefix'=>'api/v1'],function(){
