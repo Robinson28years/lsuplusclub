@@ -31,10 +31,12 @@
                               发布于：  {{$discussion->created_at}}
                             </div>
                         </div>
+                        @if(Auth::check())
                         @if($discussion->user->id==Auth::user()->id)
                         <div class="media-right">
                             <input class="btn btn-success"  type="button" onclick="window.location.href='/discuss/{{$discussion->id}}/edit'" value="修改">
                         </div>
+                        @endif
                         @endif
                         <div class="media" style="color: #7088A9">
                            <h2 >评论区</h2>
@@ -58,6 +60,7 @@
 
                             @endforeach
                         @endif
+                        @if(Auth::check())
                         <div class="media" style="margin-top: 8%">
                             <div class="media-left">
                                 <a href="#">
@@ -70,10 +73,13 @@
 
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                     <input type="hidden" name="discussion_id" value="{{ $discussion->id }}">
-                                    <input class="form-control btn-success btn pull-right " type="submit" value="发表评论">
+                                    <input class="form-control btn-success btn pull-right " type="submit"  value="发表评论">
                                 </form>
                             </div>
                         </div>
+                            @else
+                            <input class="form-control btn-warning btn pull-right " type="button" onclick="window.location.href='/auth/login/'" value="登录并参与评论">
+                        @endif
 
 
                     </div>
