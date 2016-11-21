@@ -117,9 +117,24 @@ Route::group(['middleware' => 'person'], function() {
     Route::get('resetpaw','ResetController@index');
     Route::post('resetpaw','ResetController@reset');
 
+    Route::resource('discuss','PostController');
+    Route::post('discuss/{id}/update','PostController@update');
+    Route::post('discuss/comment','CommentsController@store');
+
+    Route::get('user/avatar','UserController@avatar');
+    Route::get('user/avatarChange','UserController@avatarChange');
+    Route::post('avatar','UserController@changeAvatar');
+//    Route::get('/avatar/upload','UsersController@avatar');
+    Route::post('/avatar/upload','UserController@avatarUpload');
+    Route::post('/crop/api','UserController@cropAvatar');
+//    Route::get('discuss/create','Pos')
+
 });
 
 
 Route::group(['prefix'=>'api/v1'],function(){
 	Route::resource('user','ApiController');
 });
+
+Route::get('move','VipuserController@move');
+Route::get('user/{id}','UserController@show');

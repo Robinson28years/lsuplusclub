@@ -143,7 +143,8 @@
 				</nav>
 			</div>
 		</div>
+	</div>
 		<div class="row clearfix" style="
 	    margin-top: 50px;
 	">
-</div>
+		</div>

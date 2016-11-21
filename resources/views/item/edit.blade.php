@@ -8,7 +8,6 @@
 {{-- <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css') }}"> --}}
 <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
 {{-- <script src="{{asset('assets/js/bootstrap.min.js') }}"></script> --}}
-</style>
 
 <body style="background-color: #F5F5F5;">
 	@include('admin.nav')

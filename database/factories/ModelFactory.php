@@ -21,13 +21,23 @@
 //    ];
 //});
 
-$factory->define(App\Discuss::class, function (Faker\Generator $faker) {
-    $user_ids = \App\User::lists('id')->toArray();
+//$factory->define(App\Discuss::class, function (Faker\Generator $faker) {
+//    $user_ids = \App\User::lists('id')->toArray();
+//    return [
+//        'title' => $faker->sentence,
+////        'body' => $faker->paragraphs(3,true),
+//        'user_id' =>$faker->randomElements($user_ids),
+//        'last_user_id' => $faker->randomElements($user_ids),
+//    ];
+//});
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+//    $user_ids = \App\User::lists('id')->toArray();
     return [
-        'title' => $faker->sentence,
-//        'body' => $faker->paragraphs(3,true),
-        'user_id' =>$faker->randomElements($user_ids),
-        'last_user_id' => $faker->randomElements($user_ids),
+//        'title' => $faker->sentence,
+        'body' => $faker->paragraphs(3,true),
+        'user_id' =>$faker->numberBetween(56,76),
+        'discussion_id' => $faker->numberBetween(74,76),
     ];
 });
 
