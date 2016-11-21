@@ -62,7 +62,7 @@
                             <p>
                                 <a href="/discuss/{{$comment->discussion->id}}">{{$comment->discussion->title}}</a>
                                 <p><cite>{!!$comment->body!!}</cite></p>
-                            </p> <small>{{$discussion->user->name}}</small>
+                            </p> <small>{{$comment->user->name}}</small>
                         </blockquote>
                     </div>
                 </div>
