@@ -136,5 +136,5 @@ Route::group(['prefix'=>'api/v1'],function(){
 	Route::resource('user','ApiController');
 });
 
-Route::get('move','VipuserController@move');
+//Route::get('move','VipuserController@move');
 Route::get('user/{id}','UserController@show');
