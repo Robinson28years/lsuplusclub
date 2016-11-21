@@ -100,4 +100,24 @@ class VipuserController extends Controller
     {
         //
     }
+    public function move()
+    {
+        $users = User::all();
+//        dd($users);
+        $vipusers = vipuser::all();
+        foreach ($users as $user)
+        {
+            foreach ($vipusers as $vipuser)
+            {
+                if ($user->email == $vipuser->email)
+                {
+                    $id=$user->id;
+
+                    vipuser::where('email',$vipuser->email)->update(['user_id'=>$id]);
+                    echo $vipuser->name;
+                    echo "<br>";
+                }
+            }
+        }
+    }
 }

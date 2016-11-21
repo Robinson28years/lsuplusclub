@@ -12,10 +12,6 @@
                 <div class="col-md-6">
                     <form action="/crop/api" method="post"
                           enctype="multipart/form-data">
-                        <label for="file">Filename:</label>
-                        <input type="file" name="avatar" id="avatar" />
-                        <br />
-                        <h1>test</h1>
                         <img src="{{Auth::user()->avatar}}"  width="400"  id="target">
                         <input type="hidden" id="x" name="x" />
                         <input type="hidden" id="y" name="y" />

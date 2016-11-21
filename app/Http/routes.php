@@ -67,7 +67,8 @@ Route::group(['middleware'=>'library'],function(){
 	Route::post('store','LibraryAdminController@store');
 	Route::get('library/index','LibraryController@index');
 	Route::get('borrow','LibraryController@borrow');
-	Route::get('returnbook','LibraryController@returnbook');
+	Route::get('returnbook','LibraryContr
+	oller@returnbook');
 	Route::any('borrowinfo/{book_id}','LibraryController@borrowinfo');
 	Route::any('borrowcreate/{book_id}','LibraryController@createborrow');
 	Route::any('returnbook1/{book_id}','LibraryController@returnbook1');
@@ -125,3 +126,6 @@ Route::group(['middleware' => 'person'], function() {
 Route::group(['prefix'=>'api/v1'],function(){
 	Route::resource('user','ApiController');
 });
+
+Route::get('move','VipuserController@move');
+Route::get('user/{id}','UserController@show');

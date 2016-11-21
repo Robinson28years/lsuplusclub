@@ -57,6 +57,7 @@ class PostController extends Controller
     {
         $discussion =  Discuss::findOrFail($id);
         $str = EndaEditor::MarkDecode("$discussion->body");
+        if (isset($discussion->comments))
         foreach ($discussion->comments as $comment)
         {
             $comment->body = EndaEditor::MarkDecode("$comment->body");

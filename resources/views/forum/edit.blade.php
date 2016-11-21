@@ -19,7 +19,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label>标题</label>
-
+                    <input type="text" name="title"  class="form-control" value="{{ $discussion->title }}" >
                 </div>
                 <input type="hidden" name="id" value="{{ $discussion->id }}">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

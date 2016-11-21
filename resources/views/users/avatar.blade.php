@@ -15,9 +15,7 @@
                           enctype="multipart/form-data">
                         <label for="file">Filename:</label>
                         <input type="file" name="avatar" id="avatar" />
-                        <br />
-                        <h1>test</h1>
-
+                        <br/>
                         <input type="submit" name="submit" value="Submit" />
                     </form>
                 </div>

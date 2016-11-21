@@ -21,6 +21,7 @@ return array(
     'AddReviewerToVipuser' => $baseDir . '/database/migrations/2016_08_15_143354_add_reviewer_to_vipuser.php',
     'AddStatusColumToDepartment' => $baseDir . '/database/migrations/2016_09_27_114806_add_status_colum_to_department.php',
     'AddUserIdColumToArticles' => $baseDir . '/database/migrations/2016_08_01_233551_add_user_id_colum_to_articles.php',
+    'AddUserToVipuser' => $baseDir . '/database/migrations/2016_11_19_215214_add_user_to_vipuser.php',
     'ChecktimeToTable' => $baseDir . '/database/migrations/2016_09_09_190532_checktime_to_table.php',
     'CreateArticlesTable' => $baseDir . '/database/migrations/2016_07_29_002747_create_articles_table.php',
     'CreateAwardTable' => $baseDir . '/database/migrations/2016_10_27_220751_create_award_table.php',

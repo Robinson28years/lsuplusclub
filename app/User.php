@@ -46,4 +46,8 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany(Comment::class);
     }
+    public function vipuser()
+    {
+        return $this->hasOne(vipuser::class);
+    }
 }

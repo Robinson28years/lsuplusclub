@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use EndaEditor;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -51,7 +52,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('id',$id)->first();
+        if (isset($user->comments))
+            foreach ($user->comments as $comment)
+            {
+                $comment->body = EndaEditor::MarkDecode("$comment->body");
+            }
+        return view('users.person',compact('user'));
     }
 
     /**
