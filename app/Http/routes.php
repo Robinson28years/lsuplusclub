@@ -130,6 +130,9 @@ Route::group(['middleware' => 'person'], function() {
 //    Route::get('discuss/create','Pos')
 
 });
+Route::get('discuss','PostController@index');
+Route::get('discuss/{id}','PostController@show');
+
 
 
 Route::group(['prefix'=>'api/v1'],function(){
