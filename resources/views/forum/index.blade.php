@@ -3,13 +3,13 @@
     @include('admin.punav')
     <div class="container-fluid" style="margin-top: -1px;background: #E8ECF3;text-align: center;color: #7088A9">
         <div class="col-md-6 col-md-offset-3">
-            <h3>欢迎来到LSUplus论坛</h3>
+            <h3>欢迎来到LSUplus论坛(beta版)</h3>
             <h4>浙西南最大的程序员茶文化交流基地</h4>
         </div>
     </div>
     <div class="container" style="margin-top: 5%">
         <div class="col-md-2">
-            <button type="button" class="btn btn-primary">发布新的话题</button>
+            <input type="button" class="btn btn-primary" onclick=location.href="/discuss/create" value="发布新的话题">
         </div>
         <div class="col-md-8">
             <div class="container">
