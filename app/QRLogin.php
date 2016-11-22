@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class QRLogin extends Model
 {
 	protected $table = 'qrlogin';
-    protected $fillable = ['id','userid','randnum'];
+    protected $fillable = ['id','userid','randnum','token'];
 }

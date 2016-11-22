@@ -20,6 +20,7 @@ return array(
     'AddPublicTable' => $baseDir . '/database/migrations/2016_07_29_135204_add_public_table.php',
     'AddReviewerToVipuser' => $baseDir . '/database/migrations/2016_08_15_143354_add_reviewer_to_vipuser.php',
     'AddStatusColumToDepartment' => $baseDir . '/database/migrations/2016_09_27_114806_add_status_colum_to_department.php',
+    'AddTokenToQRLogin' => $baseDir . '/database/migrations/2016_11_22_185932_add_token_to_QRLogin.php',
     'AddUserIdColumToArticles' => $baseDir . '/database/migrations/2016_08_01_233551_add_user_id_colum_to_articles.php',
     'AddUserToVipuser' => $baseDir . '/database/migrations/2016_11_19_215214_add_user_to_vipuser.php',
     'ChecktimeToTable' => $baseDir . '/database/migrations/2016_09_09_190532_checktime_to_table.php',

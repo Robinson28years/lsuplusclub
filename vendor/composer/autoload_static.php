@@ -385,6 +385,7 @@ class ComposerStaticInit0b8921e6b33fb3660b85dfd3ab1a2a14
         'AddPublicTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_29_135204_add_public_table.php',
         'AddReviewerToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_08_15_143354_add_reviewer_to_vipuser.php',
         'AddStatusColumToDepartment' => __DIR__ . '/../..' . '/database/migrations/2016_09_27_114806_add_status_colum_to_department.php',
+        'AddTokenToQRLogin' => __DIR__ . '/../..' . '/database/migrations/2016_11_22_185932_add_token_to_QRLogin.php',
         'AddUserIdColumToArticles' => __DIR__ . '/../..' . '/database/migrations/2016_08_01_233551_add_user_id_colum_to_articles.php',
         'AddUserToVipuser' => __DIR__ . '/../..' . '/database/migrations/2016_11_19_215214_add_user_to_vipuser.php',
         'ChecktimeToTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_09_190532_checktime_to_table.php',

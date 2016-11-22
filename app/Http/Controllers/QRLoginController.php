@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use JWTAuth;
 use App\Http\Controllers\Controller;
 use DB;
 use App\QRLogin;
@@ -83,15 +84,18 @@ class QRLoginController extends Controller
      */
     public function update(Request $request,$randnum)
     {
-		$rand=QRLogin::where('randnum', $randnum)->first();
-		$password2=User::where('id',$request->userid)->first();
-		if (password_verify($request->password, $password2->password)) {
+//        dd($request->token);
+        $rand=QRLogin::where('randnum', $randnum)->first();
+//        dd($rand);
+//		$password2=User::where('id',$request->userid)->first();
+//		if (password_verify($request->password, $password2->password)) {
 			// echo "true";
 		$rand->update($request->all());
-		}
-		else {
-			echo "no";
-		}
+        dd($rand->token);
+//		}
+//		else {
+//			echo "no";
+//		}
     }
 
     /**
@@ -105,11 +109,34 @@ class QRLoginController extends Controller
         //
     }
 
+    public function getToken($randnum)
+    {
+        $result=QRLogin::where('randnum', $randnum)->first();
+//        dd($request);
+//        if($result->token !=""){
+//            header('Location: http://www.lsuplus.top/qrlogin/$randnum/$result->token');
+//            return redirect(\QRLogin\{{$randnum}}?token=$result->token);
+//            $user = JWTAuth::parseToken()->authenticate();
+//            Auth::loginUsingId($user->id);
+//            echo "true";
+            return $result->token;
+//        }
+    }
+
 	public function polling($randnum)
 	{
 		$result=QRLogin::where('randnum', $randnum)->first();
-		if($result->userid !=""){
-				Auth::loginUsingId($result->userid);
+//        dd($request);
+		if($result->token !=""){
+            $token = $result->token;
+//            header('Location: http://www.lsuplus.top/qrlogin/$randnum/$result->token');
+//            return redirect(\QRLogin\{{$randnum}}?token=$result->token);
+//            $user=JWTAuth::toUser($token);
+//            dd($token);
+            $user=JWTAuth::authenticate($token);
+//            dd($user);
+//            $user = JWTAuth::parseToken()->authenticate();
+				Auth::loginUsingId($user->id);
 				echo "true";
 		}
 		else
