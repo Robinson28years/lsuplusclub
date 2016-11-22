@@ -15,7 +15,7 @@
 
                     <div class="media">
                         <div class="media-left">
-                            <a href="#">
+                            <a href="/user/{{$discussion->user->id}}">
                                 <img src="{{$discussion->user->avatar}}" style="height: 64px;width: 64px" class="media-object img-circle">
                             </a>
                         </div>
@@ -46,7 +46,7 @@
                                 <div class="media " style="border-top: 2px solid #E4E3E5;margin-top: 3%;margin-bottom: 3%">
                                 </div>
                                 <div class="media">
-                                    <a class="media-left" href="#">
+                                    <a class="media-left" href="/user/{{$comment->user->id}}">
                                         <img src="{{$comment->user->avatar}}" style="height: 64px;width: 64px" class="media-object img-circle">
                                     </a>
                                     <div class="media-body">
@@ -64,7 +64,7 @@
                         <div class="media" style="margin-top: 8%">
                             <div class="media-left">
                                 <a href="#">
-                                    <img src="{{$discussion->user->avatar}}" style="height: 64px;width: 64px" class="media-object img-circle">
+                                    <img src="{{Auth::user()->avatar}}" style="height: 64px;width: 64px" class="media-object img-circle">
                                 </a>
                             </div>
                             <div class="media-body" >

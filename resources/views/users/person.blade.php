@@ -23,11 +23,13 @@
                     <p>注册时间：{{$user->created_at}}</p>
                     </h5>
                 </div>
+                    @if(isset(Auth::user()->id))
                     @if($user->id==Auth::user()->id)
                         <div class="media-right">
                             <input class="btn btn-success"  type="button" onclick="window.location.href='/person/{{$user->email}}'" value="修改">
                         </div>
                     @endif
+                        @endif
             </div>
             </div>
             <div class="container">

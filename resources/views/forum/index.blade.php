@@ -9,7 +9,7 @@
     </div>
     <div class="container" style="margin-top: 5%">
         <div class="col-md-2">
-            <input type="button" class="btn btn-primary" onclick=location.href="/discuss/create" value="发布新的话题">
+            <input type="button" class="btn btn-primary" onclick="location.href='/discuss/create'" value="发布新的话题">
         </div>
         <div class="col-md-8">
             <div class="container">

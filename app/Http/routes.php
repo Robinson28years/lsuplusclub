@@ -117,7 +117,7 @@ Route::group(['middleware' => 'person'], function() {
     Route::get('resetpaw','ResetController@index');
     Route::post('resetpaw','ResetController@reset');
 
-//    Route::resource('discuss','PostController');
+    Route::resource('discuss','PostController');
     Route::post('discuss/{id}/update','PostController@update');
     Route::post('discuss/comment','CommentsController@store');
 
@@ -132,6 +132,7 @@ Route::group(['middleware' => 'person'], function() {
 });
 Route::get('discuss','PostController@index');
 Route::get('discuss/{id}','PostController@show');
+//Route::get('discuss/create','PostController@create');
 
 
 
