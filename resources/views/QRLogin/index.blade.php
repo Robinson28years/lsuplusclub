@@ -28,7 +28,10 @@ margin-top: 11%;
 							// window.location.href = 'http://lsuplus.top/';
 					}
 				}
-				xmlHttp.open("GET","QRLogin/{{$randnum}}",true);
+				{{--xmlHttp.open("GET","/QRLogin/{{$randnum}}/getToken",true);--}}
+				{{--$token=xmlHttp.send();--}}
+{{--				{{echo $token}}--}}
+				xmlHttp.open("GET","/QRLogin/{{$randnum}}",true);
 				xmlHttp.send();
 			}
 			setInterval("polling()",1000);

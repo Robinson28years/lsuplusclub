@@ -32,6 +32,7 @@ $api->version('v1', function ($api) {
             $api->post('resetpaw','AuthController@apiResetPassword');
 
         });
+        $api->get('QRLogin/{randnum}','QRLoginController@polling');
 
 
         $api->group(['middleware'=>'jwt.refresh'],function ($api){
@@ -67,6 +68,7 @@ Route::get('item/{id}','ItemController@show');
 Route::get('QRLogin','QRLoginController@index');
 Route::get('QRLogin/{randnum}','QRLoginController@polling');
 Route::post('QRLogin/{randnum}','QRLoginController@update');
+Route::get('QRLogin/{randnum}/getToken','QRLoginController@getToken');
 
 Route::group(['middleware'=>'library'],function(){
 	Route::get('create','LibraryAdminController@create');
