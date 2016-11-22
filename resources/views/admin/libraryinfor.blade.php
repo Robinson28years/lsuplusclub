@@ -1,11 +1,17 @@
-@extends('app')
+@extends('app2')
 @section('content')
     @include('admin.nav')
+    <div class="jumbotron">
+        <div class="container">
+            <h2>图书管理区
+                <input type="submit" class="btn btn-info btn-lg pull-right" onclick="window.location.href='/library/create'" value="添加书籍">
+            </h2>
+        </div>
+    </div>
     <div class="container-fluid">
-
         <div class="row clearfix">
             <div class="col-md-12 column">
-                <input type="submit" class="btn btn-info btn-lg" style="margin-top: 10px" onclick="window.location.href='/library/create'" value="添加书籍">
+
                 <table class="table" style="margin-top: 15px">
                     <thead>
                     <tr>
@@ -104,6 +110,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {!! $data->render() !!}
             </div>
         </div>
     </div>

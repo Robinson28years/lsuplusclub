@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app2')
 @section('content')
     @if(Auth::user()->admin==1)
         @include('admin.nav')
