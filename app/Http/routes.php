@@ -73,7 +73,7 @@ Route::get('QRLogin/{randnum}/getToken','QRLoginController@getToken');
 Route::group(['middleware'=>'library'],function(){
 	Route::get('create','LibraryAdminController@create');
 	Route::post('store','LibraryAdminController@store');
-	Route::get('library/index','LibraryController@index');
+
 	Route::get('borrow','LibraryController@borrow');
 	Route::get('returnbook','LibraryController@returnbook');
 	Route::any('borrowinfo/{book_id}','LibraryController@borrowinfo');
@@ -92,7 +92,7 @@ Route::group(['middleware'=>'library'],function(){
 	Route::post('/upload','HomeController@upload');
 	Route::resource('award','AwardController');
 });
-
+Route::get('library/index','LibraryController@index');
 //
 Route::group(['middleware' => 'admin'], function() {
     Route::post('vip/applyadmin/{id}','VipapplyController@update');

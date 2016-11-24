@@ -18,7 +18,7 @@ class LibraryController extends Controller
     public function index()
     {
         $data = Library_book::orderBy('book_state','desc')->paginate(15);
-        $departments = DB::table('vipuser')->where('email',Auth::user()->email)->get();
+//        $departments = DB::table('vipuser')->where('email',Auth::user()->email)->get();
         return view('library.libraryindex',compact('data'));
     }
     //借书区
