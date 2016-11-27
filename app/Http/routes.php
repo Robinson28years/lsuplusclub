@@ -23,15 +23,19 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
     $api->group(['namespace' => 'App\Api\Controllers'],function ($api){
         $api->group(['middleware'=>['jwt.auth']],function ($api){
-//            $api->get('lessons','LessonsController@index');
-//            $api->get('lessons/{id}','LessonsController@show');
             $api->get('user/me','AuthController@getAuthenticatedUser');
 
-            $api->group(['middleware' => 'person'], function() {
-            });
+//            $api->group(['middleware' => 'person'], function() {
+//            });
+
             $api->post('resetpaw','AuthController@apiResetPassword');
 
         }) ;
+        $api->get('person','PersonController@index');
+        $api->get('person/{id}','PersonController@show');
+        $api->get('discuss','DiscussionController@index');
+        $api->get('discuss/{id}','DiscussionController@show');
+
         $api->get('QRLogin/{randnum}','QRLoginController@polling');
 
 

@@ -32,7 +32,21 @@
                                         </div>
                                             <a href="/discuss/{{$discussion->id}}">{{$discussion->title}}</a>
 
-                                        </p> <small>{{$discussion->user->name}}<cite></cite></small>
+                                        </p> <small>
+                                            @if(isset($discussion->last_user))<cite>
+                                            {{$discussion->last_user->name}}
+                                                最后回复于
+                                               {{$discussion->last_user->last_time}}
+                                                    </cite>
+                                                @else
+                                                <cite>
+                                                {{$discussion->user->name}}
+                                                创建于
+                                                {{$discussion->created_at}}
+                                                </cite>
+                                            @endif
+
+                                        </small>
 
                                     </blockquote>
 

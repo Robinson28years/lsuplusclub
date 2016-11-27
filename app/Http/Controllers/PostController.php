@@ -22,6 +22,16 @@ class PostController extends Controller
     {
         $discussions = Discuss::all();
 //        dd($discussions);
+        foreach ($discussions as $discussion)
+        {
+            if(isset($discussion->last_user))
+            foreach($discussion->last_user->comments as $comment){
+                if($comment->discussion->id==$discussion->id){
+                    $discussion->last_user->last_time=$comment->discussion->created_at;
+                }
+            }
+        }
+
         return view('forum.index',compact('discussions'));
     }
 
@@ -62,6 +72,7 @@ class PostController extends Controller
         {
             $comment->body = EndaEditor::MarkDecode("$comment->body");
         }
+
         return view('forum.show',compact('discussion','str'));
     }
 

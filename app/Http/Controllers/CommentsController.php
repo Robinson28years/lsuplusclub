@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Discuss;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -39,6 +40,11 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         $comment=Comment::create($request->all());
+        $id=$comment->user->id;
+       $discuss= Discuss::where('id',$comment->discussion->id)
+//           ->get()
+            ->update(['last_user_id'=>$id]);
+//        dd($discuss);
         return redirect()->action('PostController@show',['id'=>$comment->discussion->id]);
     }
 

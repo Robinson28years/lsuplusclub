@@ -12,14 +12,14 @@ namespace App\Api\Transformers;
 use League\Fractal\TransformerAbstract;
 use App\User;
 
-class LessonTransformers extends TransformerAbstract
+class PersonTransformers extends TransformerAbstract
 {
     public function transform(User $user)
     {
         return [
-            'id'=>$user['id'],
-            'user'=>$user['name'],
-            'email'=>$user['email']
+            'user_id'=>$user['id'],
+            'name'=>$user['name'],
+            'avatar'=>$user['avatar']
         ];
     }
 }

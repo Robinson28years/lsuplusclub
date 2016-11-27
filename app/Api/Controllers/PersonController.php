@@ -10,16 +10,17 @@ namespace App\Api\Controllers;
 
 
 
-use App\Api\Transformers\LessonTransformers;
+use App\Api\Transformers\PersonTransformers;
 use App\User;
+//use \BaseController;
 
-class LessonsController extends BaseController
+class PersonController extends BaseController
 {
     public function index()
     {
         $user= User::all();
 
-        return $this->collection($user,new LessonTransformers());
+        return $this->collection($user,new PersonTransformers());
     }
 
     public function show($id)
@@ -28,6 +29,6 @@ class LessonsController extends BaseController
         if (! $user){
             return $this->response->errorNotFound('Used not found');
         }
-        return $this->item($user,new LessonTransformers());
+        return $this->item($user,new PersonTransformers());
     }
 }

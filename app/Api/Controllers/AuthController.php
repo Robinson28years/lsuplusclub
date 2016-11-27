@@ -123,6 +123,11 @@ class AuthController extends BaseController
     public function refresh(){
 
     }
+//    public function getAvatar(){
+//        $user = JWTAuth::parseToken()->authenticate();
+//        $avatar=$user->avatar;
+//    }
+
 
 
 }
