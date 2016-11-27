@@ -27,7 +27,7 @@ class PostController extends Controller
             if(isset($discussion->last_user))
             foreach($discussion->last_user->comments as $comment){
                 if($comment->discussion->id==$discussion->id){
-                    $discussion->last_user->last_time=$comment->discussion->created_at;
+                    $discussion->last_user->last_time=$comment->created_at;
                 }
             }
         }
