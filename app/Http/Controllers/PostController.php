@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $discussions = Discuss::all();
+        $discussions = Discuss::orderBy('updated_at','desc')->get();
 //        dd($discussions);
         foreach ($discussions as $discussion)
         {
