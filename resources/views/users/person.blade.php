@@ -10,7 +10,7 @@
 
 
                 <div class="media-left col-md-2 col-md-offset-2">
-                   <a href="/user/avatar"><img class="media-object img-circle" alt="100*100" style="height: 100px;width: 100px" src="{{$user->avatar}}" ></a>
+                   <a href="#"><img class="media-object img-circle" alt="100*100" style="height: 100px;width: 100px" src="{{$user->avatar}}" ></a>
                 </div>
                 <div class="media-body" style="color: #FFFFFF">
                     <h5>
@@ -26,7 +26,7 @@
                     @if(isset(Auth::user()->id))
                     @if($user->id==Auth::user()->id)
                         <div class="media-right">
-                            <input class="btn btn-success"  type="button" onclick="window.location.href='/person/{{$user->email}}'" value="修改">
+                            <input class="btn btn-success"  type="button" onclick="window.location.href='/person/edit'" value="修改">
                         </div>
                     @endif
                         @endif

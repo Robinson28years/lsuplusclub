@@ -5,39 +5,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
+                <label>原头像</label>
                 <div class="text-center">
 
-                <img src="{{Auth::user()->avatar}}"  width="400"  id="target">
+                <img src="{{Auth::user()->avatar}}"  width="200"  id="jcrop_target">
 
                 </div>
                 <div class="col-md-6">
                     <form action="/avatar" method="post"
                           enctype="multipart/form-data">
-                        <label for="file">Filename:</label>
-                        <input type="file" name="avatar" id="avatar" />
+                        <label for="file">选择一个新头像:</label>
+                        <input type="file" class="form-control" name="avatar" id="avatar" />
                         <br/>
-                        <input type="submit" name="submit" value="Submit" />
+                        <input type="submit" class="form-control btn-success" name="submit" value="Submit" />
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <script language="JavaScript">
-        $(function(){
-            $('#target').Jcrop({
-                onChange: showCoords,
-                onSelect: showCoords
-            });
-        });
-        function showCoords(c)
-        {
-            $('#x').val(c.x);
-            $('#y').val(c.y);
-            $('#x2').val(c.x2);
-            $('#y2').val(c.y2);
-            $('#w').val(c.w);
-            $('#h').val(c.h);
-        };
-    </script>
+    {{--<script language="JavaScript">--}}
+        {{--$(function(){ $('#jcrop_target').Jcrop(); });--}}
+    {{--</script>--}}
     @stop

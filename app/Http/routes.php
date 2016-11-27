@@ -23,8 +23,8 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
     $api->group(['namespace' => 'App\Api\Controllers'],function ($api){
         $api->group(['middleware'=>['jwt.auth']],function ($api){
-            $api->get('lessons','LessonsController@index');
-            $api->get('lessons/{id}','LessonsController@show');
+//            $api->get('lessons','LessonsController@index');
+//            $api->get('lessons/{id}','LessonsController@show');
             $api->get('user/me','AuthController@getAuthenticatedUser');
 
             $api->group(['middleware' => 'person'], function() {
@@ -79,7 +79,8 @@ Route::group(['middleware'=>'library'],function(){
 	Route::any('borrowinfo/{book_id}','LibraryController@borrowinfo');
 	Route::any('borrowcreate/{book_id}','LibraryController@createborrow');
 	Route::any('returnbook1/{book_id}','LibraryController@returnbook1');
-	Route::get('person/{id}','IndexController@edit');
+//	Route::get('person/{id}','IndexController@edit');
+    Route::get('person/edit','UserController@editVipInfo');
 	Route::post('person/{id}','IndexController@update');
 
 	Route::post('signitem','IndexController@index');

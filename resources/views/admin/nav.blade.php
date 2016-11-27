@@ -109,13 +109,18 @@
 								{{Auth::user()->name}}	<strong class="caret"></strong></a>
 								<ul class="dropdown-menu">
 							<li>
-								 <a href="/person/{{Auth::user()->email}}">会员账户管理</a>
+								 <a href="/person/edit">会员账户管理</a>
 							</li>
 
 							@if (Auth::user()->admin==1)
 
 
-							<li> <a href="/vip">后台管理</a></li>
+							<li>
+								<a href="/vip">后台管理</a>
+							</li>
+										<li>
+											<a href="/resetpaw">修改密码</a>
+										</li>
 								@endif
 							<li class="divider">
 							</li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\vipuser;
 use Illuminate\Http\Request;
 use EndaEditor;
 
@@ -138,5 +139,13 @@ class UserController extends Controller
         Image::make($photo)->crop($width,$height,$xAlign,$yAlign)->fit(400)->save();
 
         return redirect('/user/avatar');
+    }
+
+    /**
+     * 用户信息修改
+     */
+    public function editVipInfo(){
+        $vip=Auth::user()->vipuser;
+        return view('auth.person',compact('vip'));
     }
 }

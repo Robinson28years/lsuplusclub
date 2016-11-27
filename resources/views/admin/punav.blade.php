@@ -84,14 +84,24 @@
                         @unless (!Auth::check())
 
 
+                            <li>
 
+                                <img src="{{Auth::user()->avatar}}" style="height: 50px;width: 50px" class="media-object img-circle">
+
+                            </li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     {{Auth::user()->name}}	<strong class="caret"></strong></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/person/{{Auth::user()->email}}">会员账户管理</a>
+                                        <a href="/user/{{Auth::user()->id}}">个人中心</a>
+                                    </li>
+                                    <li>
+                                        <a href="/resetpaw">修改密码</a>
+                                    </li>
+                                    <li>
+                                        <a href="/user/avatar">修改头像</a>
                                     </li>
 
                                     @if (Auth::user()->admin==1)

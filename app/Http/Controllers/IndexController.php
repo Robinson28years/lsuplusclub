@@ -109,6 +109,7 @@ class IndexController extends Controller
      */
     public function edit($id)
     {
+        //废除
 		$vip=vipuser::where('email', $id)->first();
 		// dd($user);
 		return view('auth.person',compact('vip'));
