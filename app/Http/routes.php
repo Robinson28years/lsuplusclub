@@ -152,3 +152,4 @@ Route::get('user/{id}','UserController@show');
 
 Route::get('excel/export','ExcelController@export');
 Route::get('excel/import','ExcelController@import');
+Route::get('excel/index','ExcelController@index');

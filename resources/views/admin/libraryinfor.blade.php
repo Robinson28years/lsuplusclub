@@ -6,6 +6,9 @@
             <h2>图书管理区
                 <input type="submit" class="btn btn-info btn-lg pull-right" onclick="window.location.href='/library/create'" value="添加书籍">
             </h2>
+            <div class="col-md-4 col-md-offset-4">
+                <input class="form-control btn-warning btn pull-right " type="button" onclick="window.location.href='/excel/export'" value="导出图书馆书籍">
+            </div>
         </div>
     </div>
     <div class="container-fluid">

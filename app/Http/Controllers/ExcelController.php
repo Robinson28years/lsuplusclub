@@ -54,4 +54,8 @@ class ExcelController extends Controller
             });
         })->export('xls');
     }
+
+    public function index(){
+        return view('excel.index');
+    }
 }
