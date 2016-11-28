@@ -149,3 +149,6 @@ Route::group(['prefix'=>'api/v1'],function(){
 
 //Route::get('move','VipuserController@move');
 Route::get('user/{id}','UserController@show');
+
+Route::get('excel/export','ExcelController@export');
+Route::get('excel/import','ExcelController@import');
