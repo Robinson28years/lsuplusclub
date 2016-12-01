@@ -100,6 +100,7 @@ Route::group(['middleware'=>'library'],function(){
 Route::get('library/index','LibraryController@index');
 //
 Route::group(['middleware' => 'admin'], function() {
+	Route::get('avatar/admin/create','UserController@create');
     Route::post('vip/applyadmin/{id}','VipapplyController@update');
 	Route::get('vip','VipuserController@index');
 	Route::resource('item','ItemController');

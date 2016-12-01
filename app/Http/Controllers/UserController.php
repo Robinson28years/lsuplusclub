@@ -31,7 +31,14 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $users=User::all();
+		// dd($users);
+		foreach ($users as $user) {
+			if (strlen($user->avatar)<2) {
+				$user->update(['avatar'=>'uploads/userIMG.jpg']);
+			}
+
+		}
     }
 
     /**
