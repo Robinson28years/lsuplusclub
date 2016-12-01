@@ -34,8 +34,8 @@ class UserController extends Controller
         $users=User::all();
 		// dd($users);
 		foreach ($users as $user) {
-			if (strlen($user->avatar)<2) {
-				$user->update(['avatar'=>'uploads/userIMG.jpg']);
+			if (strlen($user->avatar)==19) {
+				$user->update(['avatar'=>'/uploads/userIMG.jpg']);
 			}
 
 		}
