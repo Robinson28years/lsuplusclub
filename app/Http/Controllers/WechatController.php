@@ -50,6 +50,8 @@ class WechatController extends Controller
                     # code...
                     break;
             }
+            // ...
+        });
 
         Log::info('return response.');
 
