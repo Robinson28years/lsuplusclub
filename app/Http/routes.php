@@ -160,5 +160,5 @@ Route::get('excel/index','ExcelController@index');
 
 Route::any('/wechat', 'WechatController@serve');
 Route::get('/users','UserController@users');
-Route::get('/user/{openid}','UserController@user');
+Route::get('/user/{openId}','UserController@user');
 
