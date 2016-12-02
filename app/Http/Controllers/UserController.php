@@ -29,6 +29,7 @@ class UserController extends Controller
 
     public function user($openId)
     {
+        dd($openId);
         $user = $this->wechat->user->get($openId);
         return $user;
     }
