@@ -141,6 +141,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Overtrue\LaravelWechat\ServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -202,6 +204,7 @@ return [
 		'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Wechat' => Overtrue\LaravelWechat\Facade::class,
 
     ],
 

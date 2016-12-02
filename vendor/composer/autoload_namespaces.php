@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'System' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'PhpSpec' => array($vendorDir . '/phpspec/phpspec/src'),
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'Net' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
