@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\vipuser;
+use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
 use EndaEditor;
 
@@ -14,6 +15,24 @@ use Illuminate\Http\Response;
 use Image;
 class UserController extends Controller
 {
+    public $wechat;
+    public function __construct(Application $wechat)
+    {
+        $this->wechat = $wechat;
+    }
+
+    public function users()
+    {
+        $users = $this->wechat->user->lists();
+        return $users;
+    }
+
+    public function user($openId)
+    {
+        $user = $this->wechat->user->get($openId);
+        return $user;
+    }
+
     /**
      * Display a listing of the resource.
      *
