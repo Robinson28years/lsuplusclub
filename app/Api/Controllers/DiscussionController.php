@@ -15,15 +15,26 @@ use App\Api\Transformers\CommentsTransformers;
 class DiscussionController extends BaseController{
     public function index(){
         $discussions = Discuss::all();
+//        dd($discussions);
         return $this->collection($discussions,new DiscussTransformers());
 //        return Discuss::all();
     }
+//    public function show($id)
+//    {
+//        $discussions = Discuss::find($id);
+//        if (! $discussions){
+//            return $this->response->errorNotFound('Used not found');
+//        }
+//        return $this->item($discussions,new CommentsTransformers());
+//    }
     public function show($id)
     {
-        $discussions = Discuss::find($id);
-        if (! $discussions){
+        $discussion = Discuss::find($id);
+        $comments=$discussion->comments;
+        if (! $comments){
             return $this->response->errorNotFound('Used not found');
         }
-        return $this->item($discussions,new CommentsTransformers());
+//        dd($comments);
+        return $this->collection($comments,new CommentsTransformers());
     }
 }

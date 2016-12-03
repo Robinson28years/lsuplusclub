@@ -17,8 +17,10 @@ class DiscussTransformers extends TransformerAbstract
     {
         return [
             'id'=>$discussions['id'],
+            'name'=>$discussions->user->name,
+            'avatar'=>$discussions->user->avatar,
             'title'=>$discussions['title'],
-//            'body'=>$discussions['body'],
+            'body'=>$discussions['body'],
             'user_id'=>$discussions['user_id'],
             'last_user_id'=>$discussions['last_user_id'],
             'created_at'=>$discussions['created_at'],
