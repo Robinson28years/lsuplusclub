@@ -126,7 +126,7 @@ Route::group(['middleware' => 'person'], function() {
     Route::post('resetpaw','ResetController@reset');
 
     Route::get('discuss/create','PostController@create');
-    Route::post('discuss/post','PostController@store');
+    Route::post('discuss','PostController@store');
     Route::get('discuss/{id}/edit','PostController@edit');
     Route::post('discuss/{id}/update','PostController@update');
     Route::post('discuss/comment','CommentsController@store');
@@ -163,4 +163,12 @@ Route::get('/users','UserController@users');
 Route::get('/user/show/{openId}','UserController@user');
 Route::get('/menu','MenuController@menu');
 
+Route::group(['middleware' => ['wechat.oauth']], function () {
+//    Route::get('/openid', function () {
+//        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+
+//        dd($user);
+//    });
+    Route::get('/openid','UserController@getUserInfo');
+});
 

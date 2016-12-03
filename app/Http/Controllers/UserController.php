@@ -13,12 +13,20 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Response;
 use Image;
+use Wechat;
 class UserController extends Controller
 {
     public $wechat;
     public function __construct(Application $wechat)
     {
         $this->wechat = $wechat;
+    }
+    public function getUserInfo()
+    {
+        $user = new  User;
+        $user = $user->getUser();
+//        $user = Wechat::user();
+        dd($user->id);
     }
 
     public function users()

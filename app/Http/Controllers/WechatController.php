@@ -57,4 +57,11 @@ class WechatController extends Controller
 
         return $wechat->server->serve();
     }
+    public function getUser()
+    {
+        $wechat = app('wechat');
+        $userApi = $wechat->user;
+        dd($userApi);
+
+    }
 }

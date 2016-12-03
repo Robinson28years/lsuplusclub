@@ -34,8 +34,8 @@ class MenuController extends Controller
                     ],
                     [
                         "type" => "view",
-                        "name" => "视频",
-                        "url"  => "http://v.qq.com/"
+                        "name" => "登录",
+                        "url"  => "http://lsuplus.top/openid"
                     ],
                     [
                         "type" => "click",

@@ -50,4 +50,13 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasOne(vipuser::class);
     }
+    public function getUser()
+    {
+        $user = session('wechat.oauth_user');
+//        $wechat = app('wechat');
+//        $userApi = $wechat->user;
+//        $use=User::where('openid',$userApi->openId);
+//        dd($user);
+        return $user;
+    }
 }
