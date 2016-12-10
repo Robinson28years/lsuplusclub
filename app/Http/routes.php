@@ -29,6 +29,8 @@ $api->version('v1', function ($api) {
 //            });
 
             $api->post('resetpaw','AuthController@apiResetPassword');
+            $api->post('discuss/store','PostController@store');
+            $api->post('comment/store','PostController@commentStore');
 
         }) ;
         $api->get('person','PersonController@index');

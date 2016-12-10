@@ -14,7 +14,7 @@ use App\Api\Transformers\CommentsTransformers;
 
 class DiscussionController extends BaseController{
     public function index(){
-        $discussions = Discuss::all();
+        $discussions = Discuss::orderBy('updated_at','desc')->get();
 //        dd($discussions);
         return $this->collection($discussions,new DiscussTransformers());
 //        return Discuss::all();
