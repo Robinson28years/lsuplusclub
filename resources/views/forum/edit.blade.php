@@ -16,14 +16,14 @@
 
         <div class="editor">
             <form class="" action="/discuss/{{ $discussion->id }}/update" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" >
                 <div class="form-group">
                     <label>标题</label>
-                    <input type="text" name="title"  class="form-control" value="{{ $discussion->title }}" >
+                    <input type="text" name="title"  class="form-control" value="{{ $discussion->title }}" required>
                 </div>
                 <input type="hidden" name="id" value="{{ $discussion->id }}">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                <textarea id='myEditor' name="body">{{$discussion->body}}</textarea>
+                <textarea id='myEditor' name="body" required>{{$discussion->body}}</textarea>
                 <input type="submit" class="btn btn-success btn-sm">
             </form>
         </div>

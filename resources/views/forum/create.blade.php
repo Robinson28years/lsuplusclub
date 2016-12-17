@@ -19,10 +19,10 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label>标题</label>
-                    <input type="text" name="title"  class="form-control" value="" >
+                    <input type="text" name="title"  class="form-control" value="" required>
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                <textarea id='myEditor' name="body"></textarea>
+                <textarea id='myEditor' name="body" required></textarea>
                 <input type="submit" class="btn btn-success btn-sm">
             </form>
         </div>
