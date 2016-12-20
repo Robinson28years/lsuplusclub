@@ -174,3 +174,6 @@ Route::group(['middleware' => ['wechat.oauth']], function () {
     Route::get('/openid','UserController@getUserInfo');
 });
 
+//feedback
+Route::post('feedback','FeedbackController@store');
+
