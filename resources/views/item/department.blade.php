@@ -6,7 +6,7 @@
     margin-top: 35px;
 ">
 			<div class="col-md-4 col-md-offset-2">
-				<img src="{{asset('assets/img/ban.jpg') }}" alt="" width="40%" style="border-radius: 50%;"  />
+				<img src="http://ww4.sinaimg.cn/mw690/b8eae9cfgw1fax5uv7zadj204603yaa1.jpg" alt="" width="40%" style="border-radius: 50%;"  />
 				<div class="col-md-12">
 					<h3 class="col-md-offset-1">办公室</h3>
 					1、负责俱乐部内部建设<br>
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 col-md-offset-1">
-				<img src="{{asset('assets/img/jishu.jpg') }}" alt="" width="40%" style="border-radius: 50%;"  />
+				<img src="http://ww4.sinaimg.cn/mw690/b8eae9cfgw1fax5us1hqkj204603yt8q.jpg" alt="" width="40%" style="border-radius: 50%;"  />
 				<h3 class="col-md-offset-1">技术部</h3>
 				1、负责计算机专业相关竞赛的举办。<br>
 				2、负责俱乐部专业建设，学科技术兴趣小组的开展<br>

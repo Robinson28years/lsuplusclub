@@ -25,7 +25,7 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img alt="" src="{{asset('assets/img/datu1.jpg') }}" width="100%"/>
+						<img alt="" src="http://ww4.sinaimg.cn/mw690/b8eae9cfgw1fax5r8e152j20sd0bogpi.jpg" width="100%"/>
 						<div class="carousel-caption">
 							<h1>
 								大众创业、万众创新
@@ -36,7 +36,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img alt="" src="{{asset('assets/img/datu2.jpg') }}" width="100%"/>
+						<img alt="" src="http://ww4.sinaimg.cn/mw690/b8eae9cfgw1fax5uklzpfj20sd0bogpv.jpg" width="100%"/>
 						<div class="carousel-caption">
 							<h1>
 								互联网+
@@ -47,7 +47,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img alt="" src="{{asset('assets/img/datu3.jpg') }}" width="100%"/>
+						<img alt="" src="http://ww1.sinaimg.cn/mw690/b8eae9cfgw1fax5umheuzj20sd0bo0vq.jpg" width="100%"/>
 						<div class="carousel-caption">
 							<h1>
 								信息技术和传统产业的生态融合
@@ -253,19 +253,19 @@
 		<h4>
 			微信公众号
 		</h4>
-		<img src="{{asset('assets/img/gzh.jpg') }}" width=180px;height=180px; alt="" />
+		<img src="http://ww2.sinaimg.cn/mw690/b8eae9cfgw1fax5ur00kuj20by0by0t5.jpg" width=180px;height=180px; alt="" />
 	</div>
 	<div class="col-md-3">
 		<h4>
 			QQ群
 		</h4>
-		<img src="{{asset('assets/img/qq.jpg') }}" width=180px;height=180px; alt="" />
+		<img src="http://ww2.sinaimg.cn/mw690/b8eae9cfgw1fax5ystr3wj20f00f0tat.jpg" width=180px;height=180px; alt="" />
 	</div>
 	<div class="col-md-3">
 		<h4>
 			微博
 		</h4>
-		<img src="{{asset('assets/img/code2.png') }}" width=180px;height=180px; alt="" />
+		<img src="http://ww2.sinaimg.cn/mw690/b8eae9cfgw1fax5ywkfmgj2053053q2u.jpg" width=180px;height=180px; alt="" />
 	</div>
 
 </div>
