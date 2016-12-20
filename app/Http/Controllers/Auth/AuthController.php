@@ -62,6 +62,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'avatar' => "/uploads/userIMG.jpg",
         ]);
 		// event(new UserRegistered($user));
 
