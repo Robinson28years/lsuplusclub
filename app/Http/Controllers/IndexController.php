@@ -145,7 +145,7 @@ class IndexController extends Controller
             'version'=>'1.0'
         ]);
         return \Response::json([
-            'version'=>'1.1'
+            'version'=>'1.0'
         ]);
     }
 }
