@@ -139,4 +139,13 @@ class IndexController extends Controller
     {
         //
     }
+    public function version()
+    {
+        $version=array([
+            'version'=>'1.0'
+        ]);
+        return \Response::json([
+            'version'=>'1.0'
+        ]);
+    }
 }

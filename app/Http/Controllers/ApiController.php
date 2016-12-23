@@ -29,11 +29,11 @@ class ApiController extends Controller
     {
         // return User::all();
 		// $user = User::all();
-		// return \Response::json([
-		// 	'status'=>'success',
-		// 	'status_code'=> 200,
-		// 	'data'=> $this -> UserTransform->transformCollection($user->toArray())
-		// ]);
+//		 return \Response::json([
+//		 	'status'=>'success',
+//		 	'status_code'=> 200,
+//		 	'data'=> $this -> UserTransform->transformCollection($user->toArray())
+//		 ]);
     }
 
     /**

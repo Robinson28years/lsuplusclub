@@ -177,3 +177,5 @@ Route::group(['middleware' => ['wechat.oauth']], function () {
 //feedback
 Route::post('feedback','FeedbackController@store');
 
+Route::get('version','IndexController@version');
+
