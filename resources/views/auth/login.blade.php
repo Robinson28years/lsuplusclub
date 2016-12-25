@@ -13,6 +13,7 @@
 	 <input type="submit" value="登录" />
 	<a href="/password/email">忘记或需要修改密码</a>
 	<input type="btn" class="btn btn-success" onclick="window.location.href='/QRLogin'" value="扫码登录" style="background : #415671" />
+		<a href="/plus.apk">安卓客户端下载</a>
   </form>
 
 	@include('errors.anyerrors')

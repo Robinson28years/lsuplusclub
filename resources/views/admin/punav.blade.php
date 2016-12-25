@@ -30,6 +30,9 @@
                         <li>
                             <a href="https://qiye.aliyun.com/">邮箱</a>
                         </li>
+                        <li>
+                            <a href="/plus.apk">安卓客户端</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">图书区<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -39,6 +42,7 @@
                                 <li>
                                     <a href="{{url('create')}}">添加书籍</a>
                                 </li>
+
                             </ul>
                         </li>
                         {{-- <li class="dropdown">
