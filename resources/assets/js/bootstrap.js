@@ -16,9 +16,10 @@ require('bootstrap-sass');
  * using reactive data binding and reusable components. Vue's API is clean
  * and simple, leaving you to focus on building your next great project.
  */
-
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
 window.Vue = require('vue');
-
+Vue.use(ElementUI)
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
