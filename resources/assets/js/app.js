@@ -14,7 +14,13 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('top-card', require('./components/top-card.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+	methods: {
+	 handleSelect(key, keyPath) {
+	   console.log(key, keyPath);
+	 }
+   }
 });
