@@ -19,7 +19,9 @@ require('bootstrap-sass');
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 window.Vue = require('vue');
-Vue.use(ElementUI)
+import VueRouter from 'vue-router';
+Vue.use(ElementUI);
+Vue.use(VueRouter);
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

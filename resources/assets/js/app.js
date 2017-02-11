@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+import router from './routes';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,12 +16,10 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('top-card', require('./components/top-card.vue'));
+Vue.component('pu-nav', require('./components/pu-nav.vue'));
+Vue.component('login-form', require('./components/login-form.vue'));
 
 const app = new Vue({
     el: '#app',
-	methods: {
-	 handleSelect(key, keyPath) {
-	   console.log(key, keyPath);
-	 }
-   }
+ router
 });
