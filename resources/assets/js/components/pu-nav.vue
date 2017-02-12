@@ -16,11 +16,8 @@
 			</el-col>
 			<el-col :span="4" >
 				<el-row>
-					<el-submenu :span="17"  index="/">
-		  			<template slot="title">登录</template>
-					<login-form></login-form>
-		  		  </el-submenu>
-					<el-menu-item  index="3"><el-col :span="7">注册</el-col></el-menu-item>
+					<el-menu-item  index="3"><el-col :span="12">登录</el-col></el-menu-item>
+					<el-menu-item  index="4"><el-col :span="12">注册</el-col></el-menu-item>
 				</el-row>
 			</el-col>
 		</el-row>

@@ -1,19 +1,27 @@
 <template lang="html">
-	<el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="密码" prop="pass">
-    <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
-  </el-form-item>
-  <el-form-item label="确认密码" prop="checkPass">
-    <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off"></el-input>
-  </el-form-item>
-  <el-form-item label="年龄" prop="age">
-    <el-input v-model.number="ruleForm2.age"></el-input>
-  </el-form-item>
-  <el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-    <el-button @click="resetForm('ruleForm2')">重置</el-button>
-  </el-form-item>
-</el-form>
+<el-row type="flex" align="bottom">
+	<el-col :span="10" :offset="7">
+		<el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+			<el-form-item
+			    prop="email"
+			    label="邮箱"
+			    :rules="[
+			      { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+			      { type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change' }
+			    ]"
+			  >
+			    <el-input v-model="ruleForm2.email"></el-input>
+			  </el-form-item>
+			 <el-form-item label="密码" prop="pass">
+			    <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
+			 </el-form-item>
+			 <el-form-item>
+			    <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+			    <el-button @click="resetForm('ruleForm2')">重置</el-button>
+			 </el-form-item>
+		</el-form>
+	</el-col>
+</el-row>
 </template>
 
 <script>
@@ -56,6 +64,7 @@ export default {
 	 };
 	 return {
 	   ruleForm2: {
+		 email: '',
 		 pass: '',
 		 checkPass: '',
 		 age: ''
@@ -64,12 +73,12 @@ export default {
 		 pass: [
 		   { validator: validatePass, trigger: 'blur' }
 		 ],
-		 checkPass: [
-		   { validator: validatePass2, trigger: 'blur' }
-		 ],
-		 age: [
-		   { validator: checkAge, trigger: 'blur' }
-		 ]
+		//  checkPass: [
+		//    { validator: validatePass2, trigger: 'blur' }
+		//  ],
+		//  age: [
+		//    { validator: checkAge, trigger: 'blur' }
+		//  ]
 	   }
 	 };
    },
@@ -77,7 +86,8 @@ export default {
 	 submitForm(formName) {
 	   this.$refs[formName].validate((valid) => {
 		 if (valid) {
-		   alert('submit!');
+		   axios.get('/skills')
+		   		.then(response => console.log(response.data))
 		 } else {
 		   console.log('error submit!!');
 		   return false;

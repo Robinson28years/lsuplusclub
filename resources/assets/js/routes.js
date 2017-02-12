@@ -8,7 +8,11 @@ let routes =[
 	{
 		path: '/2',
 		component: require('./components/Example.vue')
-	}
+	},
+	{
+		path: '/3',
+		component: require('./components/login-form.vue')
+	},
 ];
 
 
