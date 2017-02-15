@@ -16,7 +16,8 @@
 			    <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
 			 </el-form-item>
 			 <el-form-item>
-			    <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+			    <el-button type="primary" @click="submitForm('ruleForm2')"
+                           >提交</el-button>
 			    <el-button @click="resetForm('ruleForm2')">重置</el-button>
 			 </el-form-item>
 		</el-form>
@@ -63,11 +64,14 @@ export default {
 	   }
 	 };
 	 return {
+	   fullscreenLoading: false,
+	   loading: true,
 	   ruleForm2: {
 		 email: '',
 		 pass: '',
 		 checkPass: '',
-		 age: ''
+		 age: '',
+
 	   },
 	   rules2: {
 		 pass: [
@@ -83,11 +87,29 @@ export default {
 	 };
    },
    methods: {
+       openFullScreen() {
+           this.fullscreenLoading = true;
+           setTimeout(() => {
+               this.fullscreenLoading = false;
+           }, 1000);
+       },
 	 submitForm(formName) {
 	   this.$refs[formName].validate((valid) => {
 		 if (valid) {
-		   axios.get('/skills')
-		   		.then(response => console.log(response.data))
+             axios.post('/login', {
+                 email : this.ruleForm2.email,
+                 password: this.ruleForm2.pass,
+//                 grant_type: 'password',
+//                 client_id: 2,
+//                 client_secret: 'nkPVrOIVEuvNbcah3Xs3vfIXYJze5ivpZzStZoRU'
+             })
+                 .then(function (response) {
+                     console.log(response);
+                 })
+                 .catch(function (error) {
+                     console.log(error);
+                 });
+				  location.reload();
 		 } else {
 		   console.log('error submit!!');
 		   return false;

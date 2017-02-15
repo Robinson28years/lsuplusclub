@@ -13,6 +13,10 @@ let routes =[
 		path: '/3',
 		component: require('./components/login-form.vue')
 	},
+	{
+		path: '/4',
+		component: require('./components/OAuth.vue')
+	},
 ];
 
 

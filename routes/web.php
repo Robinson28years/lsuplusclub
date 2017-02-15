@@ -18,6 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('skills',function(){
-	return['laravel', 'Vue', 'PHP'];
+Route::post('skills',function(){
 });
+Route::get('aaa','OAuthController@oauth');
