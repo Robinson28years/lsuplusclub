@@ -17,7 +17,7 @@ require('bootstrap-sass');
  * and simple, leaving you to focus on building your next great project.
  */
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+// import 'element-ui/lib/theme-default/index.css'
 window.Vue = require('vue');
 import VueRouter from 'vue-router';
 Vue.use(ElementUI);

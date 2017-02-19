@@ -21,3 +21,12 @@ Route::get('/home', 'HomeController@index');
 Route::post('skills',function(){
 });
 Route::get('aaa','OAuthController@oauth');
+
+Route::get('discuss/create','DiscussController@create');
+Route::post('discuss','DiscussController@store');
+Route::get('discuss/{id}/edit','DiscussController@edit');
+Route::post('discuss/{id}/update','DiscussController@update');
+Route::post('discuss/comment','CommentController@store');
+
+Route::get('discuss','DiscussController@index');
+Route::get('discuss/{id}','DiscussController@show');

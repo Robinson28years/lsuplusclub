@@ -1,42 +1,42 @@
-<template >
-	<el-menu router theme="dark" default-active="1" class="el-menu-demo" mode="horizontal"  @select="handleSelect">
-		<el-row>
-			<el-col :span="20">
-				<el-menu-item index="">
-					<img src="http://ww2.sinaimg.cn/mw690/b8eae9cfgw1fax5upr2i4j21jk1jkn5s.jpg"  height="60" alt="">
-				</el-menu-item>
-			  <el-menu-item  index="1">处理中心</el-menu-item>
-			  <el-submenu  index="2">
-				<template slot="title">我的工作台</template>
-				<el-menu-item  index="/">选项1</el-menu-item>
-				<el-menu-item index="2">选项2</el-menu-item>
-				<el-menu-item index="2-3">选项3</el-menu-item>
-			  </el-submenu>
-			  <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-			</el-col>
-			<el-col :span="4" >
-				<el-row>
-					<el-menu-item  index="3"><el-col :span="12">登录</el-col></el-menu-item>
-					<el-menu-item  index="4"><el-col :span="12">注册</el-col></el-menu-item>
-				</el-row>
-			</el-col>
-		</el-row>
-	</el-menu>
-
+<template>
+  <el-carousel :interval="4000" type="card" height="400px">
+    <el-carousel-item  v-for="item in items">
+      <img :src="item.src" style="height:120%;" alt="">
+	  <!-- <h1>{{item}}</h1> -->
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <script>
 export default {
-	mounted() {
-		console.log('Component mounted.')
-	},
-	methods: {
-	 handleSelect(key, keyPath) {
-	   console.log(key, keyPath);
-	 }
-	  },
+	data(){
+		return {
+			items:[
+				{src:"http://az619519.vo.msecnd.net/files/ElephantsWalking_EN-US8959341729_1366x768.jpg"},
+				{src:"http://az608707.vo.msecnd.net/files/WilsonStump_EN-US9517346067_1366x768.jpg"},
+				{src:"http://az608707.vo.msecnd.net/files/HallwylfjelletSunset_EN-US9423796363_1366x768.jpg"}
+				]
+			}
+	}
+
 }
 </script>
 
-<style lang="css">
+
+<style>
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
 </style>

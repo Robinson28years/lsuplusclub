@@ -14,11 +14,14 @@ import router from './routes';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
-Vue.component('top-card', require('./components/top-card.vue'));
+// Vue.component('example', require('./components/Example.vue'));
+// Vue.component('top-card', require('./components/top-card.vue'));
 Vue.component('pu-nav', require('./components/pu-nav.vue'));
-Vue.component('login-form', require('./components/login-form.vue'));
-Vue.component('OAuth', require('./components/OAuth.vue'));
+Vue.component('jumbotron', require('./components/Jumbotron.vue'));
+Vue.component('comment', require('./components/Comment.vue'));
+Vue.component('parse', require('./components/Parse.vue'));
+// Vue.component('login-form', require('./components/login-form.vue'));
+// Vue.component('OAuth', require('./components/OAuth.vue'));
 // Vue.component(
 //     'passport-clients',
 //     require('./components/passport/Clients.vue')

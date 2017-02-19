@@ -9,9 +9,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+	@yield('style')
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{ mix('css/home.css') }}">
+	<link href="http://cdn.bootcss.com/element-ui/1.1.6/theme-default/index.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -36,7 +38,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'LSUplus') }}
                     </a>
                 </div>
 
@@ -44,18 +46,38 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+						<li><a href="/discuss">论坛</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								活动报名 <span class="caret"></span>
+							</a>
+
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="#">
+										俱乐部活动
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										学校比赛
+									</a>
+								</li>
+							</ul>
+						</li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">登录</a></li>
+                            <li><a href="{{ route('register') }}">注册</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
+									<img class="avatar img-circle" src="{{Auth::user()->avatar}}">
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
