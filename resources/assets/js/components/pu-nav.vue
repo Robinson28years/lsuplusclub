@@ -12,11 +12,11 @@ export default {
 	data(){
 		return {
 			items:[
-				{src:"http://az619519.vo.msecnd.net/files/ElephantsWalking_EN-US8959341729_1366x768.jpg"},
-				{src:"http://az608707.vo.msecnd.net/files/WilsonStump_EN-US9517346067_1366x768.jpg"},
-				{src:"http://az619519.vo.msecnd.net/files/FoxRiverWisc_EN-US8778128592_1366x768.jpg"},
-				{src:"http://az619519.vo.msecnd.net/files/CapeSebastian_EN-US9778833789_1366x768.jpg"},
-				{src:"http://az608707.vo.msecnd.net/files/HallwylfjelletSunset_EN-US9423796363_1366x768.jpg"}
+				{src:"http://imgsrc.baidu.com/forum/pic/item/e4dde71190ef76c6ec3d8e8c9d16fdfaae5167ad.jpg"},
+				{src:"http://image60.360doc.com/DownloadImg/2013/04/1821/31734455_16.jpg"},
+				{src:"http://img.article.pchome.net/00/22/53/47/pic_lib/wm/006.jpg"},
+				{src:"http://image89.360doc.com/DownloadImg/2015/10/2315/60579626_15.jpg"},
+				{src:"http://imglf0.ph.126.net/bGlzuUP0AVvhpBKqDtJ3_g==/6630351983629968105.jpg"}
 				]
 			}
 	}
