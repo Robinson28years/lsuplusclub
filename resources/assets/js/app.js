@@ -38,5 +38,5 @@ Vue.component('parse', require('./components/Parse.vue'));
 // );
 const app = new Vue({
     el: '#app',
- router
+ 	router
 });

@@ -27,6 +27,13 @@ Route::post('discuss','DiscussController@store');
 Route::get('discuss/{id}/edit','DiscussController@edit');
 Route::post('discuss/{id}/update','DiscussController@update');
 Route::post('discuss/comment','CommentController@store');
+Route::group(['middleware' => 'admin'], function(){
+	Route::get('acm/showAll','ItemController@showAll');
+});
 
 Route::get('discuss','DiscussController@index');
 Route::get('discuss/{id}','DiscussController@show');
+
+Route::get('acm/sign','ItemController@index');
+
+Route::post('acm/store','ItemController@store');

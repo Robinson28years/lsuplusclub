@@ -24,12 +24,15 @@
 </head>
 <body>
     <div id="app">
-		@include('layouts.nav')
+		{{-- @include('layouts.nav') --}}
 
         @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+	<script type="text/javascript">
+	@yield('js')
+	</script>
 </body>
 </html>
