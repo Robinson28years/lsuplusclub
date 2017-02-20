@@ -14,6 +14,8 @@ export default {
 			items:[
 				{src:"http://az619519.vo.msecnd.net/files/ElephantsWalking_EN-US8959341729_1366x768.jpg"},
 				{src:"http://az608707.vo.msecnd.net/files/WilsonStump_EN-US9517346067_1366x768.jpg"},
+				{src:"http://az619519.vo.msecnd.net/files/FoxRiverWisc_EN-US8778128592_1366x768.jpg"},
+				{src:"http://az619519.vo.msecnd.net/files/CapeSebastian_EN-US9778833789_1366x768.jpg"},
 				{src:"http://az608707.vo.msecnd.net/files/HallwylfjelletSunset_EN-US9423796363_1366x768.jpg"}
 				]
 			}
