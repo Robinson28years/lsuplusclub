@@ -15,7 +15,7 @@ body{
 #app {
     min-height: 100%;
     position: relative;
-    padding-bottom: 140px;
+    padding-bottom: 10px;
 }
 footer{
     position: absolute;
@@ -206,9 +206,9 @@ i.large {
     border: none;
 }
 .navbar-nav > li > .dropdown-menu {
-    margin-top: 4px; 
-    border-top-right-radius: 4px; 
-    border-top-left-radius: 4px; 
+    margin-top: 4px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
 }
 .navbar-nav > li > .dropdown-menu > li i {
     margin-right: 15px;
