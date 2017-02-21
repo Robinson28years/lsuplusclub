@@ -97,7 +97,7 @@
                                 </button>
                             </div>
                         </div>
-                        {!! Geetest::render() !!}
+                        {!! Geetest::render('popup') !!}
                     </form>
                 </div>
             </div>
