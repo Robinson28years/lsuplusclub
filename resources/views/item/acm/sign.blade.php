@@ -93,11 +93,11 @@
                             <div class="col-md-6 col-md-offset-4">
 
                                 <button type="submit" class="btn btn-primary">
-                                    报名2
+                                    报名
                                 </button>
                             </div>
                         </div>
-                        {!! Geetest::render('popup') !!}
+                        {!! Geetest::render() !!}
                     </form>
                 </div>
             </div>
