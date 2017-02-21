@@ -170,6 +170,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 		Laravel\Passport\PassportServiceProvider::class,
 		YuanChao\Editor\EndaEditorServiceProvider::class,
+        Germey\Geetest\GeetestServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -229,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 		'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
+        'Geetest' => Germey\Geetest\Geetest::class,
 
     ],
 

@@ -6,11 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "germey/geetest": "^2.0",
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "laravel/tinker": "~1.0",
         "overtrue/laravel-lang": "~3.0",
-		"yuanchao/laravel-5-markdown-editor": "dev-master"
+        "yuanchao/laravel-5-markdown-editor": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.2",

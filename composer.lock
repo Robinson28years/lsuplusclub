@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "45d18e39b0267cead1fc807f8cd6a3b6",
-    "content-hash": "2494e32143dd68c814ae934179a90d6f",
+    "hash": "605ebb7948d06e7bdac6458b0634c99c",
+    "content-hash": "d5d1a0174972bebf2471de5b42a99f75",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -231,6 +231,57 @@
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
             "time": "2016-07-18 04:51:16"
+        },
+        {
+            "name": "germey/geetest",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Germey/LaravelGeetest.git",
+                "reference": "9306d626081aac8004c235f33fabf95283125062"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/Germey/LaravelGeetest/9306d626081aac8004c235f33fabf95283125062.zip",
+                "reference": "9306d626081aac8004c235f33fabf95283125062",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Germey\\Geetest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Germey",
+                    "email": "cqc@cuiqingcai.com"
+                }
+            ],
+            "description": "Geetest Package for Laravel5",
+            "keywords": [
+                "Germey",
+                "geetest",
+                "laravel"
+            ],
+            "time": "2017-02-19 09:28:32"
         },
         {
             "name": "guzzlehttp/guzzle",
