@@ -17,6 +17,29 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/verify', function () {
+    $captcha = new \Laravist\GeeCaptcha\GeeCaptcha(env('CAPTCHA_ID'), env('PRIVATE_KEY'));
+    if ($captcha->isFromGTServer()) {
+        if($captcha->success()){
+            return 'success';
+        }
+        return 'no';
+    }
+    if ($captcha->hasAnswer()) {
+        return "answer";
+    }
+    return "no answer";
+});
+
+Route::get('acm/sign/captcha', function () {
+    $captcha = new \Laravist\GeeCaptcha\GeeCaptcha(env('GEETEST_ID'), env('GEETEST_KEY'));
+
+    echo $captcha->GTServerIsNormal();
+});
+
+
+Route::get('auth/geetest','ItemController@postValidate');
+
 Route::get('/home', 'HomeController@index');
 Route::post('skills',function(){
 });

@@ -26,6 +26,16 @@ class ItemController extends Controller
     {
         //
     }
+    public function postValidate(Request $request)
+    {
+//        dd($request->all());
+        $this->validate($request, [
+            'geetest_challenge' => 'geetest',
+        ], [
+            'geetest' => config('geetest.server_fail_alert')
+        ]);
+        return "success";
+    }
 
     /**
      * Store a newly created resource in storage.

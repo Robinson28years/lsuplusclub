@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "605ebb7948d06e7bdac6458b0634c99c",
-    "content-hash": "d5d1a0174972bebf2471de5b42a99f75",
+    "hash": "a399b6cf6fdcd46415ce6db39e902bce",
+    "content-hash": "25d6ad463435c4df45eb62b4d54fecdd",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -791,6 +791,39 @@
                 "psysh"
             ],
             "time": "2016-12-30 18:13:17"
+        },
+        {
+            "name": "laravist/geecaptcha",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JellyBool/geeCaptcha.git",
+                "reference": "931432be8cb44404773e892f49ba4afc78837d9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/JellyBool/geeCaptcha/931432be8cb44404773e892f49ba4afc78837d9c.zip",
+                "reference": "931432be8cb44404773e892f49ba4afc78837d9c",
+                "shasum": ""
+            },
+            "type": "php",
+            "autoload": {
+                "psr-4": {
+                    "Laravist\\GeeCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JellyBool",
+                    "email": "jellybool@outlook.com"
+                }
+            ],
+            "description": "A geetest captcha package by laravist",
+            "time": "2016-04-10 15:36:31"
         },
         {
             "name": "lcobucci/jwt",

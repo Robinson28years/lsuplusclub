@@ -34,5 +34,6 @@
 	<script type="text/javascript">
 	@yield('js')
 	</script>
+    @yield('js2')
 </body>
 </html>

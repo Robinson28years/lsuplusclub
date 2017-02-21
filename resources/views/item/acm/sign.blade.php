@@ -91,16 +91,20 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                {!! Geetest::render() !!}
+
                                 <button type="submit" class="btn btn-primary">
                                     报名test
                                 </button>
                             </div>
                         </div>
+                        {!! Geetest::render('popup') !!}
                     </form>
                 </div>
             </div>
         {{-- </div> --}}
     </div>
 </div>
+
+{{--<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>--}}
+{{--<script src="http://static.geetest.com/static/tools/gt.js"></script>--}}
 @endsection

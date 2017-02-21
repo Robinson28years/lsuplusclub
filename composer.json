@@ -10,6 +10,7 @@
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "laravel/tinker": "~1.0",
+        "laravist/geecaptcha": "^1.1",
         "overtrue/laravel-lang": "~3.0",
         "yuanchao/laravel-5-markdown-editor": "dev-master"
     },

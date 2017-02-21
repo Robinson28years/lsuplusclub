@@ -23,7 +23,7 @@
             }
         };
         $.ajax({
-            url: url + "?t=" + (new Date()).getTime(),
+            url: "captcha?rand="+Math.round(Math.random()*100),
             type: "get",
             dataType: "json",
             success: function(data) {
