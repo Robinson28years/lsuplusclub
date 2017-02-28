@@ -58,6 +58,11 @@ class ItemController extends Controller
 		return view('item.acm.success');
     }
 
+    public function success()
+    {
+        return view('item.acm.success');
+    }
+
 	public function showAll()
     {
         $users = Item::all();
