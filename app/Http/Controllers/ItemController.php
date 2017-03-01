@@ -53,7 +53,7 @@ class ItemController extends Controller
 		'grades' => 'required',
 		'phone' => 'required|between:11,11|unique:acm',
     	]);
-		dd($request);
+//		dd($request);
         $acm= Item::create(array_merge($request->all()));
 
 		return view('item.acm.success');
