@@ -78076,6 +78076,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
   data: function data() {
@@ -78098,26 +78101,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var checkName = function checkName(rule, value, callback) {
       if (!value) {
         return callback(new Error('姓名不能为空'));
+      } else {
+        callback();
       }
     };
     var checkStudentid = function checkStudentid(rule, value, callback) {
       if (!value) {
         return callback(new Error('学号不能为空'));
+      } else {
+        callback();
       }
     };
     var checkCollege = function checkCollege(rule, value, callback) {
       if (!value) {
         return callback(new Error('二级学院不能为空'));
+      } else {
+        callback();
       }
     };
     var checkGrades = function checkGrades(rule, value, callback) {
       if (!value) {
         return callback(new Error('班级不能为空'));
+      } else {
+        callback();
       }
     };
     var checkPhone = function checkPhone(rule, value, callback) {
       if (!value) {
         return callback(new Error('联系方式不能为空'));
+      } else {
+        callback();
       }
     };
     return {
@@ -78130,6 +78143,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         phone: ''
       },
       rules2: {
+        age: [{ validator: checkAge, trigger: 'blur' }],
         name: [{ validator: checkName, trigger: 'blur' }],
         studentid: [{ validator: checkStudentid, trigger: 'blur' }],
         college: [{ validator: checkCollege, trigger: 'blur' }],
@@ -78140,10 +78154,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
+    open3: function open3() {
+      this.$notify({
+        title: '成功',
+        message: '这是一条成功的提示消息',
+        type: 'success'
+      });
+    },
     submitForm: function submitForm(formName) {
+      var _this = this;
+
       this.$refs[formName].validate(function (valid) {
         if (valid) {
-          alert('submit!');
+          axios.post('/acm/store', {
+            name: _this.ruleForm2.name,
+            studentid: _this.ruleForm2.studentid,
+            college: _this.ruleForm2.college,
+            grades: _this.ruleForm2.grades,
+            phone: _this.ruleForm2.phone
+          }).then(function (response) {
+            console.log(response);
+          }).catch(function (error) {
+            console.log(error);
+          });
+          _this.open3();
         } else {
           console.log('error submit!!');
           return false;
@@ -78213,18 +78247,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model.number",
-      value: (_vm.ruleForm2.age),
-      expression: "ruleForm2.age",
+      value: (_vm.ruleForm2.name),
+      expression: "ruleForm2.name",
       modifiers: {
         "number": true
       }
     }],
     domProps: {
-      "value": (_vm.ruleForm2.age)
+      "value": (_vm.ruleForm2.name)
     },
     on: {
       "input": function($event) {
-        _vm.ruleForm2.age = _vm._n($event)
+        _vm.ruleForm2.name = _vm._n($event)
       },
       "blur": function($event) {
         _vm.$forceUpdate()
