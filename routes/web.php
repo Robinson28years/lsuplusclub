@@ -58,6 +58,7 @@ Route::get('discuss','DiscussController@index');
 Route::get('discuss/{id}','DiscussController@show');
 
 Route::get('acm/sign','ItemController@index');
+Route::get('acm/testsign','ItemController@testindex');
 
 Route::post('acm/store','ItemController@store');
 Route::get('acm/store','ItemController@success');

@@ -16,6 +16,10 @@ class ItemController extends Controller
     {
         return view('item.acm.sign');
     }
+	public function testindex()
+    {
+        return view('item.acm.testsign');
+    }
 
     /**
      * Show the form for creating a new resource.
