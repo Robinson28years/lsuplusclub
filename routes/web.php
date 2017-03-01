@@ -60,4 +60,4 @@ Route::get('discuss/{id}','DiscussController@show');
 Route::get('acm/sign','ItemController@index');
 
 Route::post('acm/store','ItemController@store');
-Route::get('acm/store','ItemController@success');
+//Route::get('acm/store','ItemController@success');
