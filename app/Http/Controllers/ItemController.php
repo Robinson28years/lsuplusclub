@@ -47,11 +47,11 @@ class ItemController extends Controller
     {
 		// dd($request->all());
 		$this->validate($request, [
-        'studentid' => 'required|unique:acm',
+        'studentid' => 'required',
         'college' => 'required',
 		'name' => 'required',
 		'grades' => 'required',
-		'phone' => 'required|between:11,11|unique:acm',
+		'phone' => 'required',
     	]);
 //		dd($request);
         $acm= Item::create(array_merge($request->all()));
