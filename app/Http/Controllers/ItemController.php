@@ -47,7 +47,7 @@ class ItemController extends Controller
     {
 		// dd($request->all());
 		$this->validate($request, [
-        'studentid' => 'required|unique:acm|Integer',
+        'studentid' => 'required|unique:acm',
         'college' => 'required',
 		'name' => 'required',
 		'grades' => 'required',
