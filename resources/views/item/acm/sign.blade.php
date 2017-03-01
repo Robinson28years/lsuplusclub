@@ -27,7 +27,7 @@
                         <label for="password" class="col-md-4 control-label">长学号</label>
 
                         <div class="col-md-6">
-                            <input id="password" type="text" class="form-control" name="studentid" required>
+                            <input id="password" type="text" class="form-control" name="studentid" value="{{ old('studentid') }}" required>
 
                             @if ($errors->has('studentid'))
                                 <span class="help-block">
