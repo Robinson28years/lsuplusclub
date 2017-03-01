@@ -46,13 +46,13 @@ class ItemController extends Controller
     public function store(Request $request)
     {
 		// dd($request->all());
-		$this->validate($request, [
-        'studentid' => 'required',
-        'college' => 'required',
-		'name' => 'required',
-		'grades' => 'required',
-		'phone' => 'required',
-    	]);
+//		$this->validate($request, [
+//        'studentid' => 'required',
+//        'college' => 'required',
+//		'name' => 'required',
+//		'grades' => 'required',
+//		'phone' => 'required',
+//    	]);
 //		dd($request);
         $acm= Item::create(array_merge($request->all()));
 
