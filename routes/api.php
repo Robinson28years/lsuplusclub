@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('register', 'Api\AuthController@register');     // 注册
+Route::post('login', 'Api\AuthController@login');           // 登陆
+Route::group(['middleware' => 'jwt.auth', 'jwt.refresh'], function () {
+    Route::post('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
+});
+//Route::group(['middleware' => 'jwt.refresh'], function () {
+//    Route::post('register', 'Api\AuthController@register');
+//});
