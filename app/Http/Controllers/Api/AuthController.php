@@ -29,6 +29,12 @@ class AuthController extends Controller
         return response()->json(['result' => $token]);
     }
 
+    /*刷新 token */
+    public function refresh()
+    {
+        return "success";
+    }
+
     /*获取用户信息*/
     public function get_user_details(Request $request)
     {

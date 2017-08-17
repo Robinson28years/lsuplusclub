@@ -22,6 +22,6 @@ Route::post('login', 'Api\AuthController@login');           // 登陆
 Route::group(['middleware' => 'jwt.auth', 'jwt.refresh'], function () {
     Route::post('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
 });
-//Route::group(['middleware' => 'jwt.refresh'], function () {
-//    Route::post('register', 'Api\AuthController@register');
-//});
+Route::group(['middleware' => 'jwt.refresh'], function () {
+    Route::post('refresh', 'Api\AuthController@refresh');
+});
