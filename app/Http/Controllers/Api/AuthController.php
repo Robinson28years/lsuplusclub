@@ -32,7 +32,7 @@ class AuthController extends Controller
     /*刷新 token */
     public function refresh()
     {
-        return "success";
+        return response()->json(['status' => 'success']);
     }
 
     /*获取用户信息*/
