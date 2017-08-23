@@ -19,8 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', 'Api\AuthController@register');     // 注册
 Route::post('login', 'Api\AuthController@login');           // 登陆
-Route::group(['middleware' => 'jwt.auth', 'jwt.refresh'], function () {
+Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
+    Route::post('topics','Api\ForumController@store');
+    Route::post('topics/update','Api\ForumController@update');
 });
 Route::get('topics','Api\ForumController@index');
 Route::get('topic/{id}','Api\ForumController@show');

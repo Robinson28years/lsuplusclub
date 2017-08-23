@@ -33,8 +33,4 @@ class Forum extends Model
         $article = $this->findOrFail($id);
         return collect($article,$article->comments);
     }
-    public function store($request)
-    {
-        return $this->saveOrFail($request);
-    }
 }
