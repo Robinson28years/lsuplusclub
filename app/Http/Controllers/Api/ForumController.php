@@ -18,9 +18,12 @@ class ForumController extends Controller
         $this->discussion = new Forum();
     }
 
-    public function index()
+    public function index(Request $categories)
     {
-        $discussions = Forum::orderBy('updated_at', 'desc')->paginate(10);
+//        dd($categories->categories);
+        $discussions = Forum::where('categories', $categories->categories)
+            ->orderBy('updated_at', 'desc')
+            ->paginate(6);
         foreach ($discussions as $discussion) {
             $discussion->user = User::find($discussion->user_id);
             $discussion->last_user = User::find($discussion->last_user_id);
