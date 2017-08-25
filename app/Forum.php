@@ -31,6 +31,12 @@ class Forum extends Model
     public function show($id)
     {
         $article = $this->findOrFail($id);
+        $article->user = User::find($article->user_id);
+        $article->last_user = User::find($article->last_user_id);
+        foreach ($article->comments as $comment) {
+            $comment->user = User::find($comment->user_id);
+            $comment->last_user = User::find($comment->last_user_id);
+        }
         return collect($article,$article->comments);
     }
 }

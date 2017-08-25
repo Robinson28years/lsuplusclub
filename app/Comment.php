@@ -14,7 +14,7 @@ class Comment extends Model
         if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
             return Carbon::parse($date)->diffForHumans();
         }
-        return Carbon::parse($date);
+        return $date;
     }
     public function user()
     {

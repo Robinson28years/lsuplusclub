@@ -21,16 +21,20 @@ class ForumController extends Controller
     public function index()
     {
         $discussions = Forum::orderBy('updated_at', 'desc')->paginate(10);
-        foreach ($discussions as $discuss) {
-            $discuss->user = User::find($discuss->user_id);
-            $discuss->last_user = User::find($discuss->last_user_id);
+        foreach ($discussions as $discussion) {
+            $discussion->user = User::find($discussion->user_id);
+            $discussion->last_user = User::find($discussion->last_user_id);
         }
         return $discussions;
     }
 
     public function show($id)
     {
-        return $this->discussion->show($id);
+        $discussion = $this->discussion->show($id);
+//        dd($discussion->first);
+//        $discussion->user = User::find($discussion[user_id]);
+//        $discussion->last_user = User::find($discussion[last_user_id]);
+        return $discussion;
     }
 
     public function store(Request $request)
