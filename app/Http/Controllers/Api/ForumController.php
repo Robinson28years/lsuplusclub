@@ -81,6 +81,7 @@ class ForumController extends Controller
         }
 
         $this->discussion->findOrFail($topic['id'])->update($request->all());
+        //TODO: 返回完整数据
         return response()->json(["result" => "success"], 200);
     }
 

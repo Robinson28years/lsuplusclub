@@ -6,6 +6,8 @@ use App\Book;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class BookController extends Controller
 {
@@ -18,10 +20,11 @@ class BookController extends Controller
     {
 //        $book = Book::all()->first->get();
 //        dd($book->owner());
-        $books = Book::all();
+        $books = Book::orderBy('created_at', 'desc')
+                ->paginate(6);
         foreach ($books as $book) {
-            $book->owner = $book->owner;
-            $book->borrower = $book->borrower;
+            $book->owner;
+            $book->borrower;
         }
         return $books;
 
@@ -38,13 +41,11 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $user = JWTAuth::parseToken()->authenticate();
-        $book = array_merge($request->all(), array("owner_id" => $user->id, "borrower_id" => 0));
+        $book = array_merge($request->all(), array("owner_id" => $user->id, "borrower_id" => 0 ,"state" => "未借出"));
 //        dd($topic);
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'owner_id' => 'required',
             'description' => 'required',
-            'state' => 'required',
             'isbn' => 'required',
             'address' => 'required',
         ]);
@@ -53,6 +54,8 @@ class BookController extends Controller
             return $validator->errors();
         }
         $book = Book::create($book);
+        $book->owner;
+        $book->borrower;
         return $book;
     }
 
@@ -69,7 +72,7 @@ class BookController extends Controller
             'state' => '已经借出',
             'return_time' => Carbon::now()->addMonth(2),
         ]);
-        return $book;
+        return $this->show($id);
     }
 
     /**
@@ -80,9 +83,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book::where('id',$id)->get();
-        $book->owner = $book->owner;
-        $book->borrower = $book->borrower;
+        $book = Book::findOrFail($id);
+        $book->owner;
+        $book->borrower;
         return $book;
     }
 
@@ -97,17 +100,17 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
         $user = JWTAuth::parseToken()->authenticate();
-        if ($user->admin != '1' && $user->id != $request->owner_id) {
-            return response()->json(["error" => "你没权限操作"], 200);
+        $book = Book::findOrFail($id);
+        if ($user->admin != '1' && $user->id != $book->owner_id) {
+            return response()->json(["error" => "你没权限操作"], 401);
         }
-        $book = array_merge($request->all(), array("owner_id" => $user->id, "borrower_id" => 0));
+        $book = array_merge($request->all(), array("id"=>$book->id));
 //        dd($topic);
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'owner_id' => 'required',
             'description' => 'required',
-            'state' => 'required',
             'isbn' => 'required',
             'address' => 'required',
         ]);
@@ -132,6 +135,7 @@ class BookController extends Controller
         if ($user->admin != '1' && $user->id != $book->owner_id) {
             return response()->json(["error" => "你没权限操作"], 200);
         }
-        return $book->delete();
+        $book->delete();
+        return "success";
     }
 }
