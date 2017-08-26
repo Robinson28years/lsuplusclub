@@ -21,9 +21,14 @@ class ForumController extends Controller
     public function index(Request $categories)
     {
 //        dd($categories->categories);
-        $discussions = Forum::where('categories', $categories->categories)
-            ->orderBy('updated_at', 'desc')
-            ->paginate(6);
+        if ($categories->categories == '') {
+            $discussions = Forum::orderBy('updated_at', 'desc')
+                ->paginate(6);
+        } else {
+            $discussions = Forum::where('categories', $categories->categories)
+                ->orderBy('updated_at', 'desc')
+                ->paginate(6);
+        }
         foreach ($discussions as $discussion) {
             $discussion->user = User::find($discussion->user_id);
             $discussion->last_user = User::find($discussion->last_user_id);
@@ -46,7 +51,7 @@ class ForumController extends Controller
         $topic = array_merge($request->all(), array("user_id" => $user->id, "last_user_id" => 0));
 //        dd($topic);
         $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
+            'title' => 'required|max:25',
             'body' => 'required',
         ]);
 

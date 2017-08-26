@@ -23,6 +23,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
     Route::post('topics','Api\ForumController@store');
     Route::post('topics/update','Api\ForumController@update');
+    Route::post('comments','Api\CommentController@store');
 });
 Route::get('topics','Api\ForumController@index');
 Route::get('topic/{id}','Api\ForumController@show');

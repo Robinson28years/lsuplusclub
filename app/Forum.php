@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Forum extends Model
 {
     protected $table = 'discuss';
-    protected $fillable = ['id','title', 'body','user_id','last_user_id'];
+    protected $fillable = ['id','title', 'body','categories','user_id','last_user_id'];
 //    public function getCreatedAtAttribute($date)
 //    {
 //        if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
@@ -35,7 +35,7 @@ class Forum extends Model
         $article->last_user = User::find($article->last_user_id);
         foreach ($article->comments as $comment) {
             $comment->user = User::find($comment->user_id);
-            $comment->last_user = User::find($comment->last_user_id);
+//            $comment->last_user = User::find($comment->last_user_id);
         }
         return collect($article,$article->comments);
     }
