@@ -27,8 +27,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('comments','Api\CommentController@store');
     //书
     Route::post('books','Api\BookController@store');
-    Route::patch('books/{id}','Api\BookController@borrow');
     Route::put('books/{id}','Api\BookController@update');
+    Route::patch('books/{id}','Api\BookController@borrow');
     Route::delete('books/{id}','Api\BookController@destroy');
 
 });

@@ -21,7 +21,7 @@ class BookController extends Controller
 //        $book = Book::all()->first->get();
 //        dd($book->owner());
         $books = Book::orderBy('created_at', 'desc')
-                ->paginate(6);
+                ->paginate(15);
         foreach ($books as $book) {
             $book->owner;
             $book->borrower;
@@ -100,7 +100,7 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+//        dd($request->all());
         $user = JWTAuth::parseToken()->authenticate();
         $book = Book::findOrFail($id);
         if ($user->admin != '1' && $user->id != $book->owner_id) {
@@ -119,7 +119,7 @@ class BookController extends Controller
             return $validator->errors();
         }
         $book = Book::where('id',$id)->update($request->all());
-        return $book;
+        return $this->show($id);
     }
 
     /**
