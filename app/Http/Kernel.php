@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Admin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Tymon\JWTAuth\Middleware\GetUserFromToken;
 use Tymon\JWTAuth\Middleware\RefreshToken;
@@ -62,5 +63,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'jwt.auth' => GetUserFromToken::class,
         'jwt.refresh' => RefreshToken::class,
+        'admin' => Admin::class,
     ];
 }

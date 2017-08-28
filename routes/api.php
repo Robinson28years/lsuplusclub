@@ -36,11 +36,13 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::patch('books/{id}', 'Api\BookController@borrow');
     Route::delete('books/{id}', 'Api\BookController@destroy');
     //活动
-    Route::post('activities', 'Api\ActivityController@store');
-    Route::put('activities/{id}', 'Api\ActivityController@update');
     Route::post('activities/{id}/user', 'Api\ActivityController@sign');
-    Route::delete('activities/{id}', 'Api\ActivityController@destroy');
-
+    //后台管理
+    Route::group(['middleware' => 'admin'], function () {
+        Route::post('activities', 'Api\ActivityController@store');
+        Route::put('activities/{id}', 'Api\ActivityController@update');
+        Route::delete('activities/{id}', 'Api\ActivityController@destroy');
+    });
 
 });
 Route::get('topics', 'Api\ForumController@index');
