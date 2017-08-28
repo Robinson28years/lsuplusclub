@@ -19,25 +19,35 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', 'Api\AuthController@register');     // 注册
 Route::post('login', 'Api\AuthController@login');           // 登陆
+Route::post('refresh', 'Api\AuthController@refresh');       //刷新token
+Route::group(['middleware' => 'jwt.refresh'], function () {
+});
+
+
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
     //论坛
-    Route::post('topics','Api\ForumController@store');
+    Route::post('topics', 'Api\ForumController@store');
 //    Route::post('topics/update','Api\ForumController@update');
-    Route::post('comments','Api\CommentController@store');
+    Route::post('comments', 'Api\CommentController@store');
     //书
-    Route::post('books','Api\BookController@store');
-    Route::put('books/{id}','Api\BookController@update');
-    Route::patch('books/{id}','Api\BookController@borrow');
-    Route::delete('books/{id}','Api\BookController@destroy');
+    Route::post('books', 'Api\BookController@store');
+    Route::put('books/{id}', 'Api\BookController@update');
+    Route::patch('books/{id}', 'Api\BookController@borrow');
+    Route::delete('books/{id}', 'Api\BookController@destroy');
+    //活动
+    Route::post('activities', 'Api\ActivityController@store');
+    Route::put('activities/{id}', 'Api\ActivityController@update');
+    Route::post('activities/{id}/user', 'Api\ActivityController@sign');
+    Route::delete('activities/{id}', 'Api\ActivityController@destroy');
+
 
 });
-Route::get('topics','Api\ForumController@index');
-Route::get('topic/{id}','Api\ForumController@show');
+Route::get('topics', 'Api\ForumController@index');
+Route::get('topic/{id}', 'Api\ForumController@show');
 
-Route::get('books','Api\BookController@index');
-Route::get('books/{id}','Api\BookController@show');
+Route::get('books', 'Api\BookController@index');
+Route::get('books/{id}', 'Api\BookController@show');
 
-Route::post('refresh', 'Api\AuthController@refresh');
-Route::group(['middleware' => 'jwt.refresh'], function () {
-});
+Route::get('activities', 'Api\ActivityController@index');
+Route::get('activities/{id}', 'Api\ActivityController@show');

@@ -76,8 +76,8 @@ class ForumController extends Controller
         if ($validator->fails()) {
             return $validator->errors();
         }
-        if ($this->discussion->findOrFail($topic['id'])->user_id != $user->id) {
-            return response()->json(["result" => "无权限进行此操作"], 200);
+        if ($user->admin != '1' && $this->discussion->findOrFail($topic['id'])->user_id != $user->id) {
+            return response()->json(["error" => "你没权限操作"], 401);
         }
 
         $this->discussion->findOrFail($topic['id'])->update($request->all());

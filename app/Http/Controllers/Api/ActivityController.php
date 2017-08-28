@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Activity;
+use App\UserActivity;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ActivityController extends Controller
 {
@@ -36,6 +41,7 @@ class ActivityController extends Controller
             'img' => 'required',
             'summary' => 'required',
             'body' => 'required',
+            'sign_deadline' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -57,6 +63,22 @@ class ActivityController extends Controller
         return $activity;
     }
 
+    public function sign($id)
+    {
+        $deadline = Activity::findOrFail($id)->sign_deadline;
+        if (Carbon::now() > $deadline) {
+            return response()->json(["error" => "报名已截止"], 400);
+        }
+        $user = JWTAuth::parseToken()->authenticate();
+        $check = UserActivity::where(['user_id'=>$user->id,'activity_id' => $id])->get();
+//        dd(count($check) );
+        if (count($check) > 0) {
+            return response()->json(["error" => "你已报名"], 400);
+        }
+        $sign = UserActivity::create(['user_id' => $user->id, 'activity_id' => $id]);
+        return $sign;
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -67,7 +89,25 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = JWTAuth::parseToken()->authenticate();
+        $activity = Activity::findOrFail($id);
+        if ($user->admin != '1' && $user->id != $activity->publisher_id) {
+            return response()->json(["error" => "你没权限操作"], 401);
+        }
+        $activity = array_merge($request->all(), array("id" => $activity->id));
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:25',
+            'img' => 'required',
+            'summary' => 'required',
+            'body' => 'required',
+            'sign_deadline' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+        $activity = Activity::where('id', $id)->update($request->all());
+        return $this->show($id);
     }
 
     /**
@@ -78,6 +118,11 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = JWTAuth::parseToken()->authenticate();
+        $activity = Activity::findOrFail($id);
+        if ($user->admin != '1' && $user->id != $activity->publisher_id) {
+            return response()->json(["error" => "你没权限操作"], 401);
+        }
+        $activity->delete();
     }
 }
