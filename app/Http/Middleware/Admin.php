@@ -17,7 +17,7 @@ class Admin
     public function handle($request, Closure $next)
     {
         $user = JWTAuth::parseToken()->authenticate();
-        if ($user->admin != "1") {
+        if ($user->role != "admin") {
             return response()->json(["error" => "你没有权限"], 401);
         }
         return $next($request);

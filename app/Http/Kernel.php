@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use App\Http\Middleware\Admin;
+use App\Http\Middleware\CORS;
+use Barryvdh\Cors\HandleCors;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Tymon\JWTAuth\Middleware\GetUserFromToken;
 use Tymon\JWTAuth\Middleware\RefreshToken;
@@ -43,7 +45,9 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
+//            'cors',
             \Barryvdh\Cors\HandleCors::class,
+//            CORS::class,
         ],
     ];
 
@@ -64,5 +68,6 @@ class Kernel extends HttpKernel
         'jwt.auth' => GetUserFromToken::class,
         'jwt.refresh' => RefreshToken::class,
         'admin' => Admin::class,
+        'cors' => HandleCors::class,
     ];
 }

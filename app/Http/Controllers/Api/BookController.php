@@ -103,7 +103,7 @@ class BookController extends Controller
 //        dd($request->all());
         $user = JWTAuth::parseToken()->authenticate();
         $book = Book::findOrFail($id);
-        if ($user->admin != '1' && $user->id != $book->owner_id) {
+        if ($user->role != 'admin' && $user->id != $book->owner_id) {
             return response()->json(["error" => "你没权限操作"], 401);
         }
         $book = array_merge($request->all(), array("id"=>$book->id));
@@ -132,7 +132,7 @@ class BookController extends Controller
     {
         $user = JWTAuth::parseToken()->authenticate();
         $book = Book::findOrFail($id);
-        if ($user->admin != '1' && $user->id != $book->owner_id) {
+        if ($user->role != 'admin' && $user->id != $book->owner_id) {
             return response()->json(["error" => "你没权限操作"], 200);
         }
         $book->delete();

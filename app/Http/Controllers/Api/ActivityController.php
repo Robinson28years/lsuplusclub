@@ -91,7 +91,7 @@ class ActivityController extends Controller
     {
         $user = JWTAuth::parseToken()->authenticate();
         $activity = Activity::findOrFail($id);
-        if ($user->admin != '1' && $user->id != $activity->publisher_id) {
+        if ($user->role != 'admin' && $user->id != $activity->publisher_id) {
             return response()->json(["error" => "你没权限操作"], 401);
         }
         $activity = array_merge($request->all(), array("id" => $activity->id));
@@ -120,7 +120,7 @@ class ActivityController extends Controller
     {
         $user = JWTAuth::parseToken()->authenticate();
         $activity = Activity::findOrFail($id);
-        if ($user->admin != '1' && $user->id != $activity->publisher_id) {
+        if ($user->role != 'admin' && $user->id != $activity->publisher_id) {
             return response()->json(["error" => "你没权限操作"], 401);
         }
         $activity->delete();
