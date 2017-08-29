@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 Route::post('register', 'Api\AuthController@register');     // 注册
 Route::post('login', 'Api\AuthController@login');           // 登陆
@@ -42,6 +42,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::post('activities', 'Api\ActivityController@store');
         Route::put('activities/{id}', 'Api\ActivityController@update');
         Route::delete('activities/{id}', 'Api\ActivityController@destroy');
+        //获取所有用户
+        Route::get('users/all','Api\AuthController@get_all_users');
     });
 
 });
