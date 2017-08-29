@@ -47,6 +47,7 @@ class ActivityController extends Controller
         if ($validator->fails()) {
             return $validator->errors();
         }
+//        $activity->sign_deadline = Carbon::createFromFormat();
         $activity = Activity::create($activity);
         return $activity;
     }

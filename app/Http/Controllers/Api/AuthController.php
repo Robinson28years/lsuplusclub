@@ -54,4 +54,11 @@ class AuthController extends BaseMiddleware
 //        $user = JWTAuth::toUser($input['token']);
         return response()->json(['result' => $user]);
     }
+
+    public function get_all_users()
+    {
+        $users = User::orderBy('created_at', 'desc')
+            ->paginate(15);
+        return $users;
+    }
 }
