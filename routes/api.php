@@ -19,6 +19,8 @@ use Illuminate\Http\Request;
 
 Route::post('register', 'Api\AuthController@register');     // 注册
 Route::post('login', 'Api\AuthController@login');           // 登陆
+Route::post('code','Api\UserController@sendCode');
+Route::post('forget','Api\UserController@forget');
 Route::post('refresh', 'Api\AuthController@refresh');       //刷新token
 Route::group(['middleware' => 'jwt.refresh'], function () {
 });
@@ -26,6 +28,8 @@ Route::group(['middleware' => 'jwt.refresh'], function () {
 
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
+    Route::post('reset','Api\UserController@resetPassword');
+    Route::post('avatar','Api\UserController@setAvatar');
     //论坛
     Route::post('topics', 'Api\ForumController@store');
 //    Route::post('topics/update','Api\ForumController@update');
