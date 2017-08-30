@@ -20,7 +20,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::orderBy('created_at', 'desc')->get();
+        $activities = Activity::orderBy('created_at', 'desc')
+            ->paginate(3);
         return $activities;
     }
 
