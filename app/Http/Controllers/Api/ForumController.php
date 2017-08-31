@@ -30,6 +30,7 @@ class ForumController extends Controller
                 ->paginate(6);
         }
         foreach ($discussions as $discussion) {
+            $discussion->comments_total = count($discussion->comments);
             $discussion->user = User::find($discussion->user_id);
             $discussion->last_user = User::find($discussion->last_user_id);
         }

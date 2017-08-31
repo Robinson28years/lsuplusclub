@@ -16,6 +16,13 @@ class Forum extends Model
         }
         return $date;
     }
+    public function getUpdatedAtAttribute($date)
+    {
+        if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
+            return Carbon::parse($date)->diffForHumans();
+        }
+        return $date;
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
