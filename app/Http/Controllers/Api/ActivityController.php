@@ -22,7 +22,8 @@ class ActivityController extends Controller
     {
         $activities = Activity::orderBy('created_at', 'desc')
             ->paginate(3);
-        return $activities;
+//        return $activities;
+        return response()->json(["code"=>20000,"data" => $activities]);
     }
 
 
@@ -46,11 +47,13 @@ class ActivityController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $validator->errors();
+//            return $validator->errors();
+            return response()->json(["code" => "50005","error" => $validator->errors()]);
         }
 //        $activity->sign_deadline = Carbon::createFromFormat();
         $activity = Activity::create($activity);
-        return $activity;
+//        return $activity;
+        return response()->json(["code"=>20000,"data" => $activity]);
     }
 
     /**
@@ -62,23 +65,25 @@ class ActivityController extends Controller
     public function show($id)
     {
         $activity = Activity::findOrfail($id);
-        return $activity;
+//        return $activity;
+        return response()->json(["code"=>20000,"data" => $activity]);
     }
 
     public function sign($id)
     {
         $deadline = Activity::findOrFail($id)->sign_deadline;
         if (Carbon::now() > $deadline) {
-            return response()->json(["error" => "报名已截止"], 400);
+            return response()->json(["code"=>50020,"error" => "报名已截止"]);
         }
         $user = JWTAuth::parseToken()->authenticate();
         $check = UserActivity::where(['user_id'=>$user->id,'activity_id' => $id])->get();
 //        dd(count($check) );
         if (count($check) > 0) {
-            return response()->json(["error" => "你已报名"], 400);
+            return response()->json(["code"=>50021,"error" => "你已报名"]);
         }
         $sign = UserActivity::create(['user_id' => $user->id, 'activity_id' => $id]);
-        return $sign;
+//        return $sign;
+        return response()->json(["code"=>20000,"data" => $sign]);
     }
 
 
