@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+Route::get('/change','Api\UserController@change');
+
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

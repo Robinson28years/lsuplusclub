@@ -126,8 +126,9 @@ class BookController extends Controller
             return response()->json(["code" => "50005","error" => $validator->errors()]);
         }
         $book = Book::where('id',$id)->update($request->all());
+        $book = Book::findOrFail($id);
 //        return $this->show($id);
-        return response()->json(["code"=>20000,"data" => $this->show($id)]);
+        return response()->json(["code"=>20000,"data" => $book]);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Forum;
 use App\Mail\forgetPassword;
 use App\User;
+use App\vipuser;
 use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -90,5 +91,22 @@ class UserController extends Controller
         }
 
         return response()->json(["code" => 20000, "data" => $comments]);
+    }
+    //迁移
+    public function change()
+    {
+        $users = vipuser::all();
+        foreach ($users as $user){
+            $changeUser = User::where('email', $user->email)->first();
+            var_dump($user->email);
+            if ($changeUser != null) {
+                $changeUser->studentid = $user->schoolid;
+                $changeUser->phone = $user->phone;
+                $changeUser->grades = $user->class;
+                $changeUser->save();
+            }
+
+        }
+        return "success";
     }
 }
