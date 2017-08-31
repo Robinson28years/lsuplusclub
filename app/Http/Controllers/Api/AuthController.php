@@ -20,7 +20,7 @@ class AuthController extends BaseMiddleware
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
         $token = JWTAuth::fromUser($user);
-        return response()->json(['result'=>$token]);
+        return response()->json(['code'=>20000,'result'=>$token]);
     }
 
     /*登陆*/
@@ -28,9 +28,9 @@ class AuthController extends BaseMiddleware
     {
         $input = $request->all();
         if (!$token = JWTAuth::attempt($input)) {
-            return response()->json(['result' => '邮箱或密码错误.']);
+            return response()->json(['code'=>50010,'error' => '邮箱或密码错误.']);
         }
-        return response()->json(['result' => $token]);
+        return response()->json(['code'=>20000,'result' => $token]);
     }
 
     /*刷新 token */
@@ -39,11 +39,13 @@ class AuthController extends BaseMiddleware
         try {
             $newToken = $this->auth->setRequest($request)->parseToken()->refresh();
         } catch (TokenExpiredException $e) {
-            return $this->respond('tymon.jwt.expired', 'token_expired', $e->getStatusCode(), [$e]);
+            return response()->json(['code'=>50011,'error' => 'token过期.']);
+//            return $this->respond('tymon.jwt.expired', 'token_expired', $e->getStatusCode(), ['code'=>50011,$e]);
         } catch (JWTException $e) {
-            return $this->respond('tymon.jwt.invalid', 'token_invalid', $e->getStatusCode(), [$e]);
+            return response()->json(['code'=>50011,'error' => 'token无效']);
+//            return $this->respond('tymon.jwt.invalid', 'token_invalid', $e->getStatusCode(), ['code'=>50012,$e]);
         }
-        return response()->json(['result' => $newToken]);
+        return response()->json(['code'=>20000,'result' => $newToken]);
     }
 
     /*获取用户信息*/
@@ -52,13 +54,14 @@ class AuthController extends BaseMiddleware
         $input = $request->all();
         $user = JWTAuth::parseToken()->authenticate();
 //        $user = JWTAuth::toUser($input['token']);
-        return response()->json(['result' => $user]);
+        return response()->json(['code'=>20000,'result' => $user]);
     }
 
     public function get_all_users()
     {
         $users = User::orderBy('created_at', 'desc')
             ->paginate(15);
-        return $users;
+//        return $users;
+        return response()->json(['code'=>20000,'result' => $users]);
     }
 }
