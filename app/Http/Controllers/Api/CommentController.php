@@ -26,7 +26,7 @@ class CommentController extends Controller
 //            return $validator->errors();
             return response()->json(["code" => "50005","error" => $validator->errors()]);
         }
-        Forum::where('id', '$request->discussion_id')
+        Forum::where('id', $request->discussion_id)
                 ->update(['last_user_id' => $user->id]);
 
         $comments = Comment::create($comment);
