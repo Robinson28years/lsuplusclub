@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Forum;
 use App\Mail\forgetPassword;
 use App\User;
 use Illuminate\Hashing\BcryptHasher;
@@ -14,6 +15,18 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
+    public function user($id)
+    {
+        $user = User::findOrFail($id);
+        $user = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'grade' => $user->grade,
+            'avatar' => $user->avatar,
+            'created_at' => $user->created_at,
+        ];
+        return response()->json(["data" => $user, "code" => 20000]);
+    }
     public function sendCode(Request $request)
     {
         $email = $request->email;
@@ -56,6 +69,24 @@ class UserController extends Controller
     {
         $user = JWTAuth::parseToken()->authenticate();
         $user->avatar = $request->avatar;
+        $user->save();
         return response()->json(["msg" => "修改头像成功", "code" => 20000]);
+    }
+
+    public function allDiscussions($id)
+    {
+        $user = User::findOrFail($id);
+        $discussions = $user->discussions()->paginate(7);
+        return response()->json(["data" => $discussions, "code" => 20000]);
+    }
+    public function allComments($id)
+    {
+        $user = User::findOrFail($id);
+        $comments = $user->comments()->paginate(5);
+        foreach ($comments->all() as $comment) {
+            $comment->discussion_title = Forum::findOrFail($comment->discussion_id)->title;
+        }
+
+        return response()->json(["data" => $comments, "code" => 20000]);
     }
 }

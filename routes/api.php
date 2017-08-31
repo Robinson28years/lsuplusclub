@@ -17,19 +17,11 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::post('register', 'Api\AuthController@register');     // 注册
-Route::post('login', 'Api\AuthController@login');           // 登陆
-Route::post('code','Api\UserController@sendCode');
-Route::post('forget','Api\UserController@forget');
-Route::post('refresh', 'Api\AuthController@refresh');       //刷新token
-Route::group(['middleware' => 'jwt.refresh'], function () {
-});
-
-
 Route::group(['middleware' => 'jwt.auth'], function () {
+    //用户
     Route::get('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
-    Route::post('reset','Api\UserController@resetPassword');
-    Route::post('avatar','Api\UserController@setAvatar');
+    Route::post('user/reset','Api\UserController@resetPassword');
+    Route::post('user/avatar','Api\UserController@setAvatar');
     //论坛
     Route::post('topics', 'Api\ForumController@store');
 //    Route::post('topics/update','Api\ForumController@update');
@@ -44,7 +36,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     //后台管理
     Route::group(['middleware' => 'admin'], function () {
         Route::post('activities', 'Api\ActivityController@store');
-        Route::put('activities/{id}', 'Api\ActivityController@update');
+        Route::post('activities/{id}', 'Api\ActivityController@update');
         Route::delete('activities/{id}', 'Api\ActivityController@destroy');
         //获取所有用户
         Route::get('users/all','Api\AuthController@get_all_users');
@@ -59,3 +51,15 @@ Route::get('books/{id}', 'Api\BookController@show');
 
 Route::get('activities', 'Api\ActivityController@index');
 Route::get('activities/{id}', 'Api\ActivityController@show');
+//用户
+Route::post('register', 'Api\AuthController@register');     // 注册
+Route::post('login', 'Api\AuthController@login');           // 登陆
+Route::post('user/code','Api\UserController@sendCode');
+Route::post('user/forget','Api\UserController@forget');
+Route::post('user/avatar','Api\UserController@setAvatar');
+Route::get('user/{id}/discussions','Api\UserController@allDiscussions');
+Route::get('user/{id}/comments','Api\UserController@allComments');
+Route::get('user/{id}','Api\UserController@user');
+Route::post('refresh', 'Api\AuthController@refresh');       //刷新token
+Route::group(['middleware' => 'jwt.refresh'], function () {
+});

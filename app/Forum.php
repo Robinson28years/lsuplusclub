@@ -9,13 +9,13 @@ class Forum extends Model
 {
     protected $table = 'discuss';
     protected $fillable = ['id','title', 'body','categories','user_id','last_user_id'];
-//    public function getCreatedAtAttribute($date)
-//    {
-//        if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
-//            return Carbon::parse($date)->diffForHumans();
-//        }
-//        return Carbon::parse($date);
-//    }
+    public function getCreatedAtAttribute($date)
+    {
+        if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
+            return Carbon::parse($date)->diffForHumans();
+        }
+        return $date;
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

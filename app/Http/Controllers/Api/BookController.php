@@ -26,7 +26,8 @@ class BookController extends Controller
             $book->owner;
             $book->borrower;
         }
-        return $books;
+        return response()->json(["code"=>20000,"data" => $books]);
+//        return $books;
 
     }
 
@@ -51,12 +52,14 @@ class BookController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $validator->errors();
+//            return $validator->errors();
+            return response()->json(["code" => "50005","error" => $validator->errors()]);
         }
         $book = Book::create($book);
         $book->owner;
         $book->borrower;
-        return $book;
+//        return $book;
+        return response()->json(["code"=>20000,"data" => $book]);
     }
 
     /**
@@ -72,7 +75,9 @@ class BookController extends Controller
             'state' => '已经借出',
             'return_time' => Carbon::now()->addMonth(2),
         ]);
-        return $this->show($id);
+        $book = Book::findOrFail($id);
+//        return $this->show($id);
+        return response()->json(["code"=>20000,"data" => $book]);
     }
 
     /**
@@ -86,7 +91,8 @@ class BookController extends Controller
         $book = Book::findOrFail($id);
         $book->owner;
         $book->borrower;
-        return $book;
+//        return $book;
+        return response()->json(["code"=>20000,"data" => $book]);
     }
 
 
@@ -104,7 +110,7 @@ class BookController extends Controller
         $user = JWTAuth::parseToken()->authenticate();
         $book = Book::findOrFail($id);
         if ($user->role != 'admin' && $user->id != $book->owner_id) {
-            return response()->json(["error" => "你没权限操作"], 401);
+            return response()->json(["error" => "你没权限操作","code" => "40001"]);
         }
         $book = array_merge($request->all(), array("id"=>$book->id));
 //        dd($topic);
@@ -116,10 +122,12 @@ class BookController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $validator->errors();
+//            return $validator->errors();
+            return response()->json(["code" => "50005","error" => $validator->errors()]);
         }
         $book = Book::where('id',$id)->update($request->all());
-        return $this->show($id);
+//        return $this->show($id);
+        return response()->json(["code"=>20000,"data" => $this->show($id)]);
     }
 
     /**
@@ -133,9 +141,10 @@ class BookController extends Controller
         $user = JWTAuth::parseToken()->authenticate();
         $book = Book::findOrFail($id);
         if ($user->role != 'admin' && $user->id != $book->owner_id) {
-            return response()->json(["error" => "你没权限操作"], 200);
+            return response()->json(["code" => "50001","error" => "你没权限操作"]);
         }
         $book->delete();
-        return "success";
+//        return "success";
+        return response()->json(["code"=>20000,"msg" => "删除成功"]);
     }
 }
