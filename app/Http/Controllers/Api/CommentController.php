@@ -23,13 +23,15 @@ class CommentController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $validator->errors();
+//            return $validator->errors();
+            return response()->json(["code" => "50005","error" => $validator->errors()]);
         }
         Forum::where('id', '$request->discussion_id')
                 ->update(['last_user_id' => $user->id]);
 
         $comments = Comment::create($comment);
         $comments->user = User::find($comments->user_id);
-        return $comments;
+//        return $comments;
+        return response()->json(["code"=>20000,"data" => $comments]);
     }
 }

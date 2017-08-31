@@ -27,6 +27,7 @@ class UserController extends Controller
         ];
         return response()->json(["data" => $user, "code" => 20000]);
     }
+
     public function sendCode(Request $request)
     {
         $email = $request->email;
@@ -35,7 +36,7 @@ class UserController extends Controller
         $code = rand(100000, 999999);
         Cache::put($email, $code, 60);
         Mail::to($user)->send(new forgetPassword($email, $code));
-        return "success";
+        return response()->json(["msg" => "已发送验证码", "code" => 20000]);
     }
 
     public function forget(Request $request)
@@ -59,7 +60,7 @@ class UserController extends Controller
         if ($result) {
             $user->password = password_hash($request->newpassword, PASSWORD_DEFAULT);
             $user->save();
-        }else {
+        } else {
             return response()->json(["error" => "密码错误", "code" => 50002]);
         }
         return response()->json(["msg" => "修改密码成功", "code" => 20000]);
@@ -77,8 +78,9 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $discussions = $user->discussions()->paginate(7);
-        return response()->json(["data" => $discussions, "code" => 20000]);
+        return response()->json(["code" => 20000, "data" => $discussions]);
     }
+
     public function allComments($id)
     {
         $user = User::findOrFail($id);
@@ -87,6 +89,6 @@ class UserController extends Controller
             $comment->discussion_title = Forum::findOrFail($comment->discussion_id)->title;
         }
 
-        return response()->json(["data" => $comments, "code" => 20000]);
+        return response()->json(["code" => 20000, "data" => $comments]);
     }
 }

@@ -33,7 +33,8 @@ class ForumController extends Controller
             $discussion->user = User::find($discussion->user_id);
             $discussion->last_user = User::find($discussion->last_user_id);
         }
-        return $discussions;
+//        return $discussions;
+        return response()->json(["code"=>20000,"data" => $discussions]);
     }
 
     public function show($id)
@@ -42,13 +43,14 @@ class ForumController extends Controller
 //        dd($discussion->first);
 //        $discussion->user = User::find($discussion[user_id]);
 //        $discussion->last_user = User::find($discussion[last_user_id]);
-        return $discussion;
+//        return $discussion;
+        return response()->json(["code"=>20000,"data" => $discussion]);
     }
 
     public function store(Request $request)
     {
         $user = JWTAuth::parseToken()->authenticate();
-        $topic = array_merge($request->all(), array("user_id" => $user->id, "last_user_id" => 0));
+        $discussions = array_merge($request->all(), array("user_id" => $user->id, "last_user_id" => 0));
 //        dd($topic);
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:25',
@@ -58,14 +60,15 @@ class ForumController extends Controller
         if ($validator->fails()) {
             return $validator->errors();
         }
-        $this->discussion->create($topic);
-        return response()->json(["result" => "success"], 200);
+        $discussion = $this->discussion->create($discussions);
+//        return response()->json(["result" => "success"], 200);
+        return response()->json(["code"=>20000,"data" => $discussion]);
     }
 
     public function update(Request $request)
     {
         $user = JWTAuth::parseToken()->authenticate();
-        $topic = array_merge($request->all(), array("user_id" => $user->id, "last_user_id" => 0));
+        $discussion = array_merge($request->all(), array("user_id" => $user->id, "last_user_id" => 0));
 //        dd($topic);
         $validator = Validator::make($request->all(), [
             'id' => 'required',
@@ -74,15 +77,28 @@ class ForumController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $validator->errors();
+//            return $validator->errors();
+            return response()->json(["code" => "50005","error" => $validator->errors()]);
         }
-        if ($user->role != 'admin' && $this->discussion->findOrFail($topic['id'])->user_id != $user->id) {
-            return response()->json(["error" => "你没权限操作"], 401);
+        if ($user->role != 'admin' && $this->discussion->findOrFail($discussion['id'])->user_id != $user->id) {
+            return response()->json(["code"=>"40001","error" => "你没权限操作"]);
         }
 
-        $this->discussion->findOrFail($topic['id'])->update($request->all());
-        //TODO: 返回完整数据
-        return response()->json(["result" => "success"], 200);
+        $discussion = $this->discussion->findOrFail($discussion['id'])->update($request->all());
+//        return response()->json(["result" => "success"], 200);
+        return response()->json(["code"=>20000,"data" => $discussion]);
+    }
+
+    public function destroy($id)
+    {
+        $user = JWTAuth::parseToken()->authenticate();
+        $discussion = Forum::findOrFail($id);
+        if ($user->role != 'admin' && $user->id != $discussion->user_id) {
+            return response()->json(["code" => "40001","error" => "你没权限操作"]);
+        }
+        $discussion->delete();
+//        return "success";
+        return response()->json(["code"=>20000,"msg" => "删除成功"]);
     }
 
 }

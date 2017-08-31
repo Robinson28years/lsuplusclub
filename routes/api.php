@@ -23,9 +23,10 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('user/reset','Api\UserController@resetPassword');
     Route::post('user/avatar','Api\UserController@setAvatar');
     //论坛
-    Route::post('topics', 'Api\ForumController@store');
+    Route::post('discussions', 'Api\ForumController@store');
 //    Route::post('topics/update','Api\ForumController@update');
     Route::post('comments', 'Api\CommentController@store');
+    Route::delete('discussions/{id}', 'Api\ForumController@destroy');
     //书
     Route::post('books', 'Api\BookController@store');
     Route::put('books/{id}', 'Api\BookController@update');
@@ -43,8 +44,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     });
 
 });
-Route::get('topics', 'Api\ForumController@index');
-Route::get('topic/{id}', 'Api\ForumController@show');
+Route::get('discussions', 'Api\ForumController@index');
+Route::get('discussions/{id}', 'Api\ForumController@show');
 
 Route::get('books', 'Api\BookController@index');
 Route::get('books/{id}', 'Api\BookController@show');
