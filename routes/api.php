@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
+Route::post('sign','ACMController@store');
+
 Route::group(['middleware' => 'jwt.auth'], function () {
     //用户
     Route::get('get_user_details', 'Api\AuthController@get_user_details');  // 获取用户详情
