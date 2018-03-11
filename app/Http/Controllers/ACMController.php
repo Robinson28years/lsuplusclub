@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ACM;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ACMController extends Controller
 {
@@ -35,15 +36,22 @@ class ACMController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-       'studentid' => 'required',
+       $validator = Validator::make($request->all(), [
+       'studentid' => 'required|unique:acm2018',
        'college' => 'required',
 		'name' => 'required',
 		'grades' => 'required',
-		'phone' => 'required',
+		'phone' => 'required|unique:acm2018',
         ]);
-        $acm=ACM::create($request->all());
-        return "ok";
+        if($validator->fails()){
+            return $validator->errors();
+        }else{
+            $acm=ACM::create($request->all());
+            return "ok";
+        }
+        // dd($validator->errors());
+        // // if($validator)
+        // return "ok";
     }
 
     /**
