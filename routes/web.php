@@ -15,7 +15,7 @@ use Jenssegers\Agent\Agent;
 Route::get('/acm2018', function () {
     $agent = new Agent();
     if($agent->isMobile()){
-        return redirect('/dashboard');
+        return view('acm2018_2');
         // return view('dashboard');
     }else{
         return view('acm2018');
