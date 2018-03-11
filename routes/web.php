@@ -1,5 +1,7 @@
 <?php
 
+use Jenssegers\Agent\Agent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,13 +12,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/acm2018', function () {
+    $agent = new Agent();
+    if($agent->isMobile()){
+        return redirect('/dashboard');
+        // return view('dashboard');
+    }else{
+        return view('acm2018');
+    }
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-Route::get('/', function () {
-    return view('homepage');
-});
+// Route::get('/', function () {
+//     return view('homepage');
+// });
 
 Route::get('/change','Api\UserController@change');
 
