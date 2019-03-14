@@ -22,6 +22,9 @@ Route::get('/acm2018', function () {
 //        return view('acm2018');
 //    }
 });
+Route::get('/acm2019', function () {
+    return view('acm2018');
+});
 Route::get('/dashboard', function () {
     dd("test");
     // return view('dashboard');
