@@ -13,16 +13,18 @@ use Jenssegers\Agent\Agent;
 |
 */
 Route::get('/acm2018', function () {
-    $agent = new Agent();
-    if($agent->isMobile()){
-        return view('acm2018_2');
-        // return view('dashboard');
-    }else{
-        return view('acm2018');
-    }
+    return view('acm2018');
+//    $agent = new Agent();
+//    if($agent->isMobile()){
+//        return view('acm2018_2');
+//        // return view('dashboard');
+//    }else{
+//        return view('acm2018');
+//    }
 });
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    dd("test");
+    // return view('dashboard');
 });
 // Route::get('/', function () {
 //     return view('homepage');
