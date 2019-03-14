@@ -26,14 +26,13 @@ Route::get('/acm2019', function () {
     return view('acm2018');
 });
 Route::get('/dashboard', function () {
-    dd("test");
-    // return view('dashboard');
+     return view('dashboard');
 });
-// Route::get('/', function () {
-//     return view('homepage');
-// });
+ Route::get('/', function () {
+     return view('homepage');
+ });
 
-Route::get('/change','Api\UserController@change');
+//Route::get('/change','Api\UserController@change');
 
 //Auth::routes();
 
