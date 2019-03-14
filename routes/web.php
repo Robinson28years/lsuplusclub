@@ -12,7 +12,7 @@ use Jenssegers\Agent\Agent;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/acm2019', function () {
+Route::get('/acm2018', function () {
     return view('acm2018');
 //    $agent = new Agent();
 //    if($agent->isMobile()){
